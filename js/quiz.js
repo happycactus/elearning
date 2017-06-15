@@ -219,8 +219,10 @@ $(function() {
             
             
             //q3 = remove man
-            if ($('.moveable.active').attr('id') == 'q2')
+            if ($('.moveable.active').attr('id') == 'q2'){
                 $('.man').fadeOut();
+                $('form#frm_choices').submit();
+            }
 
 
             if ($('.moveable.active').attr('id') == 'q5'){
