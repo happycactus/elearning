@@ -50,7 +50,7 @@
         </div>
         <div class="questioncontainer" style="">
                 <div class="boxed">
-                        <div class="moveable active" id="q1">
+                        <div class="moveable" id="q1">
                             <div class="insuline_box"><h3><div class="insuline_tekst">Insulinepentherapie<br />is niet meer uit te stellen.</div></h3></div>
                             <h2>Probleemstelling</h2>
                             <div class="inner-wrap">
@@ -69,7 +69,7 @@
                             <p class="limitedbox">Welke gegevens zijn belangrijk om ervoor te zorgen dat je goed kunt starten met insulatinepentherapie?<br /></p>
                             <form action="#" name="frm_choices" id="frm_choices" method="post">
                                 <div class="boxed">
-                                    <div class="halfcol_l">
+                                    <div class="halfcol_l limitedbox">
                                         <div class="quarter">
                                             1. <span class="mini-icon"><input type="hidden" name="q2_1" id="q2_1" value="" /></span>
                                         </div>
@@ -86,7 +86,7 @@
                                 </div>
                                 <br /><br />
                                 <div class="inner-wrap">
-                                    <div class="halfcol_l">
+                                    <div class="halfcol_l twothirds">
                                         <div class="greybox">
                                             <div class="option-icon">
                                                 <div class="option_icon1"></div>
@@ -105,7 +105,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="halfcol_r">
+                                    <div class="halfcol_r onethird">
                                         <div class="greybox">
                                             <div class="option-icon">
                                                 <div class="option_icon3"></div>
@@ -132,10 +132,10 @@
                             <h2>Wat zegt een dagcurve</h2>
                             <p>Jeroen komt tijdens het volgende consult met zijn diabetes dagboekje terug. Welke conclusies kun je uit dit diabetes dagboekje trekken?</p>
                             <div class="inner-wrap">
-                                <div class="halfcol_l blockcenter">
-                                    <img src="images/agenda.png" width="100%">
+                                <div class="halfcol_l twothirds">
+                                    <img src="images/agenda.png" style="max-width:800px" width="100%">
                                 </div>
-                                <div class="halfcol_r">
+                                <div class="halfcol_r onethird">
                                     <div class="greybox holder">
                                         <div class="smallpadding">
                                             <h4 class="blue-txt">Vraag</h4>
@@ -246,7 +246,7 @@
                             </div>
                         </div>
 
-                        <div class="moveable" id="q8">
+                        <div class="moveable active" id="q8">
                             <h2>Validiteit</h2>
                             <div class="inner-wrap">
                                 <div class="halfcol_l blockcenter">
@@ -258,11 +258,12 @@
                                             <h4 class="blue-txt">Vraag</h4>
                                             <p>Welke van volgende plaatjes laat repeteerbaarheid zien?</p>
                                             <form action="#" class="validate-form" name="frm_survey" id="frm_survey" method="post">
-                                                <ul class="choicelist">
-                                                    <li class="choice"><input type="radio" value="0" name="q8" id="q8_1" class="choice" /><label for="q8_1"><span>&nbsp;</span>1</label></li>
-                                                    <li class="choice"><input type="radio" value="1" name="q8" id="q8_2" class="choice" /><label for="q8_2"><span>&nbsp;</span>2</label></li>
-                                                    <li class="choice"><input type="radio" value="2" name="q8" id="q8_3" class="choice" /><label for="q8_3"><span>&nbsp;</span>3</label></li>
-                                                </ul>
+                                                <div class="question-radio-horizontal">
+                                                    <input type="radio" name="q8" id="q8_1"><label for="q8_1">1</label>
+                                                    <input type="radio" name="q8" id="q8_2"><label for="q8_2">2</label>
+                                                    <input type="radio" name="q8" id="q8_3"><label for="q8_3">3</label>
+                                                    <input type="radio" name="q8" id="q8_4"><label for="q8_4">4</label>
+                                                </div>
                                             </form>  
                                         </div>
                                     </div>
@@ -865,7 +866,7 @@
                         </div>
                         <div class="moveable" id="q37">
                             <h2>Toetsvragen</h2>
-                            <h4 class="blue">Vraag 1</h4>
+                            <h4 class="blue-txt">Vraag 1</h4>
                             <p>Wat is er veranderd met laatste voedingsrichtlijn?</p>
                             Uitbreiding met diverse voedingsmiddelen<br />
                             Patiënten moeten worden gestimuleerd te bewegen<br />
@@ -874,7 +875,7 @@
                         </div>
                         <div class="moveable" id="q38">
                             <h2>Toetsvragen</h2>
-                            <h4 class="blue">Vraag 2</h4>
+                            <h4 class="blue-txt">Vraag 2</h4>
                             <p>Welke van onderstaande plaatjes laat nauwkeurigheid en repeteerbaarheid zien?</p>
                             <div class="inner-wrap">
                                 <div class="halfcol_l blockcenter">
@@ -890,7 +891,7 @@
                         </div>
                         <div class="moveable" id="q39">
                             <h2>Toetsvragen</h2>
-                            <h4 class="blue">Vraag 3</h4>
+                            <h4 class="blue-txt">Vraag 3</h4>
                             <p>Welke medische meerwaarde heeft 360º View dagboekje? (meerdere antwoorden mogelijk)</p>
                             HBa1C verlaging<br />
                             Reductie aantal bezoeken<br />
@@ -903,7 +904,7 @@
                         </div>
                         <div class="moveable" id="q40">
                             <h2>Toetsvragen</h2>
-                            <h4 class="blue">Vraag 4</h4>
+                            <h4 class="blue-txt">Vraag 4</h4>
                             <p>Welke uitspraak over dagcurves is niet waar?</p>
                             De patiënt kan zien hoe medicatie de bloedglucose verandert<br />
                             De patiënt kan zien hoe verschillende soorten voeding zijn of haar bloedglucose verandert<br />
@@ -913,7 +914,7 @@
                         </div>
                         <div class="moveable" id="q41">
                             <h2>Toetsvragen</h2>
-                            <h4 class="blue">Vraag 5</h4>
+                            <h4 class="blue-txt">Vraag 5</h4>
                             <p>Welke ondersteuning geeft 360º View dagboekje? (meerdere antwoorden mogelijk)</p>
                             Laat de patiënt zien wanneer je moet meten<br />
                             Geeft de zorgverlener overzicht over de geleverde inspanning en hoeveelheid eten<br />
