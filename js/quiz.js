@@ -112,7 +112,7 @@ $(function() {
                
             }
         })
-        console.log($(this));
+        //console.log($(this));
         $(this).addClass('checked');
 
          // if (currentID == numQuestions){
@@ -120,87 +120,13 @@ $(function() {
              // }
     })    
 
-
-
-
-    // $('.choices li').find('input').on('click', function(event) {
-    //     //event.preventDefault();
-        
-    //     //Question one - deactive vorige button
-    //     var QuestionID = $(this).attr('name');
-    //     var currentID = QuestionID.substring(1);
-
-    //     //REMOVE class from other labels in same radio group
-    //     var listItems = $(this).parents('ul').find('li');
-    //     listItems.each(function(idx, li) {
-    //         if ($(li).find('input:radio').hasClass('checked')) {
-    //             $(li).find('input:radio').removeClass('checked');
-               
-    //         }
-         
-            
-    //     });
-    //     //ADD class to NEW selected item
-    //     if($(this).hasClass('checked')){
-
-    //     	$(this).removeClass('checked');
-
-    //     } else {
-    //     	$(this).addClass('checked');
-    //     }
-        
-    //     //ONLY CHECK QUESTION 5
-    //     var tempstr = QuestionID.substring(0, QuestionID.indexOf( '_' ));
-    //     if (tempstr == 'q5'){
-    //         var aCurrentNames = [];
-    //         var iCount = 0;
-            
-    //         //SAVE GROUPNAME TO ARRAY
-    //         $('#q5 :radio').each(function(index){
-    //             if ($.inArray($(this).attr('name'), aCurrentNames) == -1) {
-    //                 aCurrentNames.push($(this).attr('name'));
-    //             }
-    //         });
-            
-    //         //COUNT IF RADIO GROUP IS CHECKED 
-    //         $.each(aCurrentNames, function(index, listname){
-    //             if ($(':radio[name='+listname+']').hasClass('checked')){
-    //                  iCount++;
-    //             }
-
-    //         });
-
-    //         //ARE ALL ANSWERS CHECKED?
-    //         if (iCount == aCurrentNames.length) {
-    //             activateNextButton();
-    //         }
-    //     } else {
-            
-    //         activateNextButton();
-            
-    //         // if (currentID == numQuestions){
-    //         //     activateSubmit();
-    //         // }
-
-    //     }
-
-    //     if (currentID <= 1){
-    //     	if (!$('a#btn_previous').hasClass('inactive')) {
-    //     	 	$('a#btn_previous').addClass('inactive');
-    //     	}
-    //     }        
-
-    // });
-    
+  
 
     function pageAnimations(){
-    
+
         //ADD CUSTOM ANIMATION PAGES HERE
         if ($("#movingtarget").length > 0)
             flyinarrows($('img#maintarget'), $('#arrow1'), $('#arrow2'), $('#arrow3'));
-        
-        
-
 
     }
 
@@ -219,8 +145,18 @@ $(function() {
             
             
             //q3 = remove man
-            if ($('.moveable.active').attr('id') == 'q2')
+            if ($('.moveable.active').attr('id') == 'q2'){
                 $('.man').fadeOut();
+                $('form').submit();
+            }
+
+            if ($('.moveable.active').attr('id') == 'q3')
+                $('form').submit();
+            
+
+            if ($('.moveable.active').attr('id') == 'q4')
+                $('form').submit();
+            
 
 
             if ($('.moveable.active').attr('id') == 'q5'){
@@ -241,7 +177,13 @@ $(function() {
             $('.insuline_tekst').fadeIn();
         
         if ($('.moveable.active').attr('id') == 'q3')
-            $('.man').fadeIn();
+            //PAUL : Redirect to question 2 URL
+            window.location.href = "stap1.html";
+
+        if ($('.moveable.active').attr('id') == 'q4')
+            //PAUL : Redirect to question 2 URL
+            window.location.href = "stap2.html";
+
 
         if ($(this).hasClass('inactive')){
     		return false;
@@ -275,25 +217,6 @@ $(function() {
     	 	$('a#btn_previous').addClass('inactive');
     	}
 	}
-    // function showSubmit(){
-    //     $('#btn_next').hide();
-    //     $('#btn_submit').show();
-    // }
-    // function hideSubmit(){
-    //     $('#btn_next').show();
-    //     $('#btn_submit').hide();
-    // }
-    function activateSubmit(){
-        if ($('#btn_submit').hasClass('inactive')) {
-            $('#btn_submit').removeClass('inactive')
-        }
-    }
-    function deactivateSubmit(){
-        if (!$('#bnt_submit').hasClass('inactive')) {
-            $('#btn_submit').addClass('inactive')
-        }
-
-    }
 	/*
 	 * GO TO NEXT QUESTION
 	 * Requires next questionID 
@@ -395,68 +318,6 @@ $(function() {
 
 	}
 
-    // $('.progress .questions li').on('click', function(event) {
-    //     event.preventDefault();
-    //     if (!inaction) {
-    //         var QuestionID = $(this).attr('rel');
-    //         if ($(this).hasClass('active') || $(this).hasClass('current')) {
-    //             sliderSwitch($(this).hasClass('current'));
-    //         }
-           
-    //         //Show/HIDE submit button
-    //         // if (QuestionID.substring(1) == numQuestions) {
-    //         //    showSubmit();
-    //         // } else {
-    //         //    hideSubmit();
-    //         // }
-            
-    //     }
-
-    //     function sliderSwitch(currentitem) {
-    //         var $slide = $('.screen.quiz.active .screencontent');
-    //         if ($slide.hasClass('active')) {
-    //             //reset items to right
-                
-    //             if (!currentitem) {
-    //                 if ($('#' + QuestionID).find('input').hasClass('checked')) {
-    //                 	activateNextButton();
-    //                 } else {
-    //                 	deactivateNextButton();
-    //                 }
-    //                 //IF first answer
-    //                 if (QuestionID == 'q1'){
-    //                 	deactivatePreviousButton();
-    //                 } else {
-    //                 	activatePreviousButton();
-    //                 }
-
-    //                 slideFeature('.screencontent.active', '#' + QuestionID, 500);
-    //             }
-    //         }
-
-    //     }
-
-    // });
-
-    
-    
-
-    // $('.result a.button.green').on('click', function(event) {
-    //     if (!inaction) {
-    //         $('.content .inner-cont').animate({
-    //             height: $('.screen.contact').height() + 20
-    //         }, 500, function() {
-    //             slideFeature('.result', '.contact', 500);
-    //         });
-    //     }
-    // });
-
-    //RESTART TEST
-    // $('.restart').on('click', function(event) {
-    //     slideFeature('.result', '.quiz', 500);
-
-    // });
-
 
     function slideFeature(slideOutTab, slideInTab, delaytimer) {
         delaytimer = (delaytimer == null || delaytimer == 0) ? 0 : delaytimer;
@@ -497,52 +358,6 @@ $(function() {
         }, delaytimer);
 
     }
-
-
-    //function initQuiz() {
-
-        // $('.screen.result').removeClass('active');
-        // $('.screen.quiz').addClass('active');
-
-        // $('input:checkbox').removeAttr('checked');
-        // $('input:checkbox').removeClass('checked');
-        // $('input:radio').removeAttr('checked');
-        // $('input:radio').removeClass('checked');
-
-
-        // $('.progress .questions li').removeClass('active');
-        // $('.progress .questions li').removeClass('current');
-        // $('.progress .questions li.q1').addClass('current');
-
-        // $('.resultA').removeClass('active');
-        // $('.resultB').removeClass('active');
-        // $('.resultC').removeClass('active');
-        // $('.resultD').removeClass('active');
-
-        // $('.screencontent').removeClass('active');
-        // $('#q1.screencontent').addClass('active').css({
-        //     left: 0
-        // });
-
-        // $('.screencontainer').css({
-        //     left: 0,
-        //     height: newheight
-        // });
-
-        // var totalheight = $('.screen.quiz').height();
-
-        // $('.content .inner-cont').animate({
-        //     height: totalheight
-        // }, 1000, function() {});
-
-        // setTimeout(function() {
-        //     $('.progress').addClass('active').show().css('left', newwidth).animate({
-        //         left: 0
-        //     }, 1000, "easeOutQuint", function() {
-        //         $('.choicelist li.choice input:radio').attr('disabled', false);
-        //     });
-        // }, 500);
-   // }
 
     $('form#frm_choices .greybox').click(function(event){
         event.preventDefault();
