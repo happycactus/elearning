@@ -191,7 +191,18 @@ $(function() {
     //     }        
 
     // });
+    
 
+    function pageAnimations(){
+    
+        //ADD CUSTOM ANIMATION PAGES HERE
+        if ($("#movingtarget").length > 0)
+            flyinarrows($('img#maintarget'), $('#arrow1'), $('#arrow2'), $('#arrow3'));
+        
+        
+
+
+    }
 
     $('a#btn_next').on('click', function(event){
     	event.preventDefault();
@@ -211,7 +222,12 @@ $(function() {
             if ($('.moveable.active').attr('id') == 'q2')
                 $('.man').fadeOut();
 
-            
+
+            if ($('.moveable.active').attr('id') == 'q5'){
+                if ($('#movingtarget2').length > 0)
+                    flyinarrows($('img#maintarget2'), $('#arrow4'), $('#arrow5'), $('#arrow6'));
+            }
+
             nextQuestion($('.moveable.active').attr('id'));
     	}
 
@@ -586,82 +602,127 @@ $(function() {
         }
     })
 
-    beginIntro();
+   
+    if ($("#startline").length > 0){
+        
+        beginIntro();
 
-    $(window).resize(function(){
-        quizwidth = $('.boxed').width() - 40;
-        quizheight = $('.boxed').height() - 40;
-        $('.moveable').css({width: quizwidth, height: quizheight});
-    })
-
-    function beginIntro(){
-        //BEX TODO: fix height per question
-        //BEX TODO: fix responsive / mobile presentation of questions
-        //BEX TODO: fix circle in mobile
-
-        $('.moveable').css({width: quizwidth, height: quizheight});
         $('#btn_previous').fadeOut();
-        $('.man').fadeOut();
-        $('.insuline_tekst').fadeOut();
 
-        var totalheading = $('.intro-header').height() +  $('.intro2').height() + $('.intro-footer').height();
-        var ORIGINAL_IMG_WIDTH = 827;
-        var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
-        
-        // setTimeout(function(){
-        //     // if ($('.intro-body').height() < $('.intro2').height() ){
-        //     //     $('.intro-body').css({ height: $('.intro2').height()  }, 1000);
-        //     //     $('.introcontainer').css({ height: totalheading  },1000);
-        //     // }
-        //     slideFeature('.intro', '.intro2', 1000);
-        // }, 1000);
-
-        
-        // setTimeout(function(){
-        //     $('.icon1 img').width( largeimgpercent * $('.icon1 img').width() );
-        //     $('.icon1').fadeIn();
-        // }, 2500);
-
-        // setTimeout(function(){
-        //     $('.icon2 img').width( largeimgpercent * $('.icon2 img').width() );
-        //     $('.icon2').fadeIn();
-        // }, 2800);
-
-        // setTimeout(function(){
-        //     $('.icon3 img').width( largeimgpercent * $('.icon3 img').width() );
-        //     $('.icon3').fadeIn();
-        // }, 3100);
-        
-        // setTimeout(function(){
-        //     $('.icon4 img').width( largeimgpercent * $('.icon4 img').width() );
-        //     $('.icon4').fadeIn();            
-        // }, 3400);
-        
-        // setTimeout(function(){
-        //     $('.icon5 img').width( largeimgpercent * $('.icon5 img').width() );
-        //     $('.icon5').fadeIn();
-        // }, 3700);
-        
-        // setTimeout(function(){
-        //     $('.icon6 img').width( largeimgpercent * $('.icon6 img').width() );
-        //     $('.icon6').fadeIn();
-        // }, 4000);
-
-        setTimeout(function(){
-           //$('.man').fadeIn();
-           //$('.insuline_tekst').fadeIn();
-           slideFeature('.introcontainer', '.questioncontainer', 1000);
-        }, 600);
-        
         setTimeout(function(){
             $('.container').css({ background: "#aa1025", width: "100%" });
             setTimeout(function(){
                 $('body').css({ background: "#aa1025" });
                 $('.container').css({width: "96%" });
             }, 900);
-        }, 620);
+        }, 6200);
+  
+     } else {
+        $('.container').css({ background: "#aa1025", width: "96%" });
+        $('body').css({ background: "#aa1025" });
+        $('.introcontainer').css({left: -quizwidth});
+        $('.questioncontainer').css({left: 0});
+
+    }
+
+    $(window).resize(function(){
+        //Update quiz dimensions 
+        quizwidth = $('.boxed').width() - 40;
+        quizheight = $('.boxed').height() - 40;
+        $('.moveable').css({width: quizwidth, height: quizheight});
+    })
+
+
+    function flyinarrows(maintarget, arrow1, arrow2, arrow3){
+        //change width of arrow to match target
+        var targetwidth = maintarget.width();
+        var ORIGINAL_TARGET_WIDTH = 378;
+        var temppercent = targetwidth / ORIGINAL_TARGET_WIDTH;
+
+        arrow1.width(arrow1.width() * temppercent);
+        arrow2.width(arrow2.width() * temppercent);
+        arrow3.width(arrow3.width() * temppercent);
+
+        arrow1.animate({
+            top:    "-24%",
+            left:   "-53%"
+        }, 300);
+        arrow2.delay(250).animate({
+            top:    "6%",
+            left:   "64%"
+        }, 300);
+        arrow3.delay(500).animate({
+            top:    "-18%",
+            left:   "50%"
+        }, 300);
+
+    }
+
+
+    
+
+    init();
+
+    function init(){
+        if ($(".man").length > 0)               $('.man').hide();
+        if ($('.insuline_tekst').length > 0)    $('.insuline_tekst').hide();
+        
+        $('.moveable').css({width: quizwidth, height: quizheight});
+        
+        pageAnimations();
+    }
+
+    function beginIntro(){
+        //BEX TODO: fix height per question
+        //BEX TODO: fix responsive / mobile presentation of questions
+        //BEX TODO: fix circle in mobile
 
         
+
+        var totalheading = $('.intro-header').height() +  $('.intro2').height() + $('.intro-footer').height();
+        var ORIGINAL_IMG_WIDTH = 827;
+        var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
+        
+        setTimeout(function(){
+            slideFeature('.intro', '.intro2', 1000);
+        }, 1000);
+
+        
+        setTimeout(function(){
+            $('.icon1 img').width( largeimgpercent * $('.icon1 img').width() );
+            $('.icon1').fadeIn();
+        }, 2500);
+
+        setTimeout(function(){
+            $('.icon2 img').width( largeimgpercent * $('.icon2 img').width() );
+            $('.icon2').fadeIn();
+        }, 2800);
+
+        setTimeout(function(){
+            $('.icon3 img').width( largeimgpercent * $('.icon3 img').width() );
+            $('.icon3').fadeIn();
+        }, 3100);
+        
+        setTimeout(function(){
+            $('.icon4 img').width( largeimgpercent * $('.icon4 img').width() );
+            $('.icon4').fadeIn();            
+        }, 3400);
+        
+        setTimeout(function(){
+            $('.icon5 img').width( largeimgpercent * $('.icon5 img').width() );
+            $('.icon5').fadeIn();
+        }, 3700);
+        
+        setTimeout(function(){
+            $('.icon6 img').width( largeimgpercent * $('.icon6 img').width() );
+            $('.icon6').fadeIn();
+        }, 4000);
+
+        setTimeout(function(){
+           $('.man').fadeIn();
+           $('.insuline_tekst').fadeIn();
+           slideFeature('.introcontainer', '.questioncontainer', 1000);
+        }, 6000);   
 
 
         setTimeout(function(){

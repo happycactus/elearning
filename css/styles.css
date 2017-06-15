@@ -162,7 +162,7 @@ h5{
 
 .boxed {position:relative; width:100%; overflow:hidden; text-align:left; height:100%;}
 .inner-circle-box{ position:relative; margin:0 auto; padding-top:20px; max-width:560px;}
-.inner-wrap {position:relative; width:100%; text-align:left;}
+.inner-wrap {position:relative; width:100%; text-align:left; height:100%;}
 
 .man {position:absolute;bottom: -15%; margin:0 auto; text-align:center; width:100%; z-index:5;}
 .manpos {display:block; margin: 0 auto; max-width:475px;}
@@ -218,6 +218,12 @@ ul.reddots li ul li::before{ width: 6px; height: 6px; left: -20px; top: 12px; co
 .accordianblock.open .hiddenblock{ height: auto; }
 .accordianblock .hiddenblock img{ width: 100%; margin-bottom: 20px; }
 
+/* ARROWS */
+.arrow-block {position:relative; overflow:visible; width:100%; margin:30px auto; max-width:378px;}
+.arrow {position:absolute;}
+#arrow1, #arrow4{top:-200%; left:-100%}
+#arrow2, #arrow5{top:-200%; left:200%}
+#arrow3, #arrow6{top:-200%; left:200%}
 
 
 /*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*/
