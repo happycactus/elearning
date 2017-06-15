@@ -177,12 +177,10 @@ $(function() {
             $('.insuline_tekst').fadeIn();
         
         if ($('.moveable.active').attr('id') == 'q3')
-            //PAUL : Redirect to question 2 URL
-            window.location.href = "stap1.html";
+            history.back(1);
 
         if ($('.moveable.active').attr('id') == 'q4')
-            //PAUL : Redirect to question 2 URL
-            window.location.href = "stap2.html";
+            history.back(1);
 
 
         if ($(this).hasClass('inactive')){
