@@ -65,6 +65,15 @@ ul.reddots li::before{ width: 6px; height: 6px; left: -20px; top: 12px; content:
 
 
 .question-radio-vertical input[type="radio"]{ display: none; }
-.question-radio-vertical input[type="radio"]+label{ display: block; width: 100%; max-width: 884px; height: 55px; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
+.question-radio-vertical input[type="radio"]+label{ display: block; width: 100%; max-width: 884px; padding: 10px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
 .question-radio-vertical input[type="radio"]:checked+label{ background: #a91024; color: #FFF; }
-	
+
+
+.question-checkbox-vertical input[type="checkbox"]{ display: none; }
+.question-checkbox-vertical input[type="checkbox"]+label{ display: block; width: 100%; max-width: 884px; height: 55px; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
+.question-checkbox-vertical input[type="checkbox"]:checked+label{ background: #a91024; color: #FFF; }
+
+.progress-bar{ position: absolute; width: 100%; max-width: 884px; height: 30px; bottom: 40px; border-radius: 15px; display: flex; justify-content: space-around; overflow:hidden; }
+.progress-item{ height: 30px; flex: 1 auto; margin-right: 1px; background: #b7b7b7; position: relative; }
+.progress-item::before{ content: ""; display: block;  width: 30px; height: 30px; background: #b7b7b7; transform: rotate(45deg); position: absolute; right: -15px; z-index: 999; border: 2px solid #FFF; border-bottom: none; border-left: none; }
+.progress-item:last-of-type::before{ display: none; }
