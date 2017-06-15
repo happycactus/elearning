@@ -157,8 +157,8 @@ h5{
 .halfcol_l{ width: 47%;	display: inline-block; 	position: relative;	float: left;}
 .halfcol_r{	width: 47%;	display: inline-block;	position: relative;	float:  right;}
 .mini_left {width:35%;}
-.twothirds {width:60%;}
-.onethird {width:30%;}
+.twothirds {width:58%;}
+.onethird {width:38%;}
 
 .boxed {position:relative; width:100%; overflow:hidden; text-align:left; height:100%;}
 .inner-circle-box{ position:relative; margin:0 auto; padding-top:20px; max-width:560px;}
@@ -305,8 +305,8 @@ input[type=text], input[type=text], input[type=number]{
 
 
 /* RADIO FORM STYLING*/
-.question-indicator{ color: #0066b1; display: block; width: 100%; }
 .question-logo{ position: absolute; right: 80px; top: 80px; }
+.question-indicator{ color: #0066b1; display: block; width: 100%; }
 
 .question-radio-horizontal{ padding-top: 20px; }
 .question-radio-horizontal input[type="radio"]{ height: 22px; margin-right: 7px; }
