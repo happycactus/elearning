@@ -158,11 +158,12 @@ $(function() {
                 $('form').submit();
             
 
-
             if ($('.moveable.active').attr('id') == 'q5'){
                 if ($('#movingtarget2').length > 0)
                     flyinarrows($('img#maintarget2'), $('#arrow4'), $('#arrow5'), $('#arrow6'));
             }
+            if ($('.moveable.active').attr('id') == 'q8')
+                $('form').submit();
 
             nextQuestion($('.moveable.active').attr('id'));
     	}
@@ -180,6 +181,9 @@ $(function() {
             history.back(1);
 
         if ($('.moveable.active').attr('id') == 'q4')
+            history.back(1);
+
+        if ($('.moveable.active').attr('id') == 'q5')
             history.back(1);
 
 
