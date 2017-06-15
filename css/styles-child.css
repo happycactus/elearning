@@ -60,3 +60,11 @@ ul.reddots li::before{ width: 6px; height: 6px; left: -20px; top: 12px; content:
 .accordianblock 	 .hiddenblock{ width: 100%; height: 0; overflow: hidden; transition: all .3s ease; }
 .accordianblock.open .hiddenblock{ height: auto; }
 .accordianblock .hiddenblock img{ width: 100%; margin-bottom: 20px; }
+
+.question-logo{ position: absolute; right: 80px; top: 80px; }
+
+
+.question-radio-vertical input[type="radio"]{ display: none; }
+.question-radio-vertical input[type="radio"]+label{ display: block; width: 100%; max-width: 884px; height: 55px; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
+.question-radio-vertical input[type="radio"]:checked+label{ background: #a91024; color: #FFF; }
+	
