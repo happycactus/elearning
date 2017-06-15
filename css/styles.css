@@ -41,7 +41,7 @@ html, body{
     line-height:24px;
     text-align:left;
 }
-p{
+p, ul{
     font-family: 'imago_probook', verdana, sans-serif;
     font-size:16px;
     line-height:24px;
@@ -177,14 +177,17 @@ h5{
 .blue-txt{ color: #0066b1; }
 .grey-txt{ color: #575756; }
 
+.big-red{ background: #a91024; display: block; width: 550px; height: 80px; margin-bottom: 20px; border-radius: 15px; padding: 26px; box-sizing: border-box; line-height: 100%; color: #FFF; font-family: 'imago_promedium'; font-size: 1.7em; }
+
 .choicelist li.choice input[type="radio"] + label span, .choicelist li.choice input[type="checkbox"] + label span {
     margin: -13px 10px 0 -20px;
 }
 
-ul.reddots{ list-style: none; padding-left: 20px; }
+ul.reddots{ list-style: none; padding-left: 20px; text-align: left; }
 ul.reddots li{ position: relative; }
 ul.reddots li::before{ width: 6px; height: 6px; left: -20px; top: 12px; content: " "; background: #a91024; position: absolute; display: inline-block; line-height: 31px;}
-
+ul.reddots li ul { list-style: none; margin-left: 20px; }
+ul.reddots li ul li::before{ width: 6px; height: 6px; left: -20px; top: 12px; content: " "; background: #575756; position: absolute; display: inline-block; line-height: 31px;}
 
 .step-container{ display: flex; justify-content: space-between; }
 .step-box{ width: 480px; font-size: 30px; }
@@ -282,16 +285,18 @@ form .greybox.deactive {border:1px solid #a91024; background: rgba(169, 16, 36, 
     background:url(../images/checked.png) left -100px no-repeat;
 }
 
+#percentage{display: block; position: relative;}
+#percentage::before{ display: block; content: "%"; width: 40px; height: 40px; position: absolute; top: 0; right: 0; font-size: .6em; line-height: 40px; }
 
 
 /*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*/
 input[type=text].text-active, input[type=text].text-active{ color: #666; }
-input[type=text], input[type=text]{
+input[type=text], input[type=text], input[type=number]{
     width: 90%;
     display: block;
     padding: 10px;
     margin: 8px 0px;
-    color: #ccc;
+    /*color: #ccc;*/
     font-size: 14px;
     border: #cccccc solid 1px;
     border-radius: 4px;
@@ -311,6 +316,11 @@ input[type=text], input[type=text]{
 .question-radio-vertical input[type="radio"]+label{ display: block; width: 100%; max-width: 884px; padding: 10px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
 .question-radio-vertical input[type="radio"]:checked+label{ background: #a91024; color: #FFF; }
 
+.question-radio-vertical.toetsvragen input[type="radio"]+label{ text-align: left; }
+.question-radio-vertical.toetsvragen input[type="radio"]:checked+label{ background: #FFFFFF; color: #000; }
+.question-radio-vertical.toetsvragen input[type="radio"]+label::before{ width: 14px; height: 14px; border-radius: 7px; border: 1px solid #878786; content: ""; display: inline-block; margin-right: 10px; transition: .2s all ease;  }
+.question-radio-vertical.toetsvragen input[type="radio"]:checked+label::before{ background: #009ee3; }
+
 /* CHECKBOX FORM STYLING*/
 .question-checkbox-vertical input[type="checkbox"]{ display: none; }
 .question-checkbox-vertical input[type="checkbox"]+label{ display: block; width: 100%; max-width: 884px; height: 55px; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
@@ -319,9 +329,17 @@ input[type=text], input[type=text]{
 
 /* PROGRESS BAR QUESTIONS */
 .progress-bar{ position: absolute; width: 100%; max-width: 884px; height: 30px; bottom: 40px; border-radius: 15px; display: flex; justify-content: space-around; overflow:hidden; }
-.progress-item{ height: 30px; flex: 1 auto; margin-right: 1px; background: #b7b7b7; position: relative; }
+.progress-item{ height: 30px; flex: 1 auto; background: #b7b7b7; position: relative; }
 .progress-item::before{ content: ""; display: block;  width: 30px; height: 30px; background: #b7b7b7; transform: rotate(45deg); position: absolute; right: -15px; z-index: 999; border: 2px solid #FFF; border-bottom: none; border-left: none; }
 .progress-item:last-of-type::before{ display: none; }
+.progress-item.active, .progress-item.active::before{ background: #878786; }
+
+
+
+.moveable#q17, .moveable#q18{ background: #FFF url(../images/hand.png) no-repeat bottom right; background-size: auto 80%; }
+.moveable#q24, .moveable#q25, .moveable#q26{ background: #FFF url(../images/bg-voedingsrichtlijn.jpg) no-repeat bottom center; background-size: cover; border-radius: 10px; }
+.ndf-source{ background: rgba(255, 255, 255, 0.6); position: absolute; bottom: 40px; padding: 5px 20px; border-radius: 10px; box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); }
+
 
 
 /*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*/
