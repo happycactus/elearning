@@ -326,7 +326,6 @@ input[type=text], input[type=text], input[type=number]{
 .question-checkbox-vertical input[type="checkbox"]+label{ display: block; width: 100%; max-width: 884px; height: 55px; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
 .question-checkbox-vertical input[type="checkbox"]:checked+label{ background: #a91024; color: #FFF; }
 
-
 /* PROGRESS BAR QUESTIONS */
 .progress-bar{ position: absolute; width: 100%; max-width: 884px; height: 30px; bottom: 40px; border-radius: 15px; display: flex; justify-content: space-around; overflow:hidden; }
 .progress-item{ height: 30px; flex: 1 auto; background: #b7b7b7; position: relative; }
@@ -334,13 +333,9 @@ input[type=text], input[type=text], input[type=number]{
 .progress-item:last-of-type::before{ display: none; }
 .progress-item.active, .progress-item.active::before{ background: #878786; }
 
-
-
 .moveable#q17, .moveable#q18{ background: #FFF url(../images/hand.png) no-repeat bottom right; background-size: auto 80%; }
 .moveable#q24, .moveable#q25, .moveable#q26{ background: #FFF url(../images/bg-voedingsrichtlijn.jpg) no-repeat bottom center; background-size: cover; border-radius: 10px; }
 .ndf-source{ background: rgba(255, 255, 255, 0.6); position: absolute; bottom: 40px; padding: 5px 20px; border-radius: 10px; box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); }
-
-
 
 /*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*/
 a.button{
