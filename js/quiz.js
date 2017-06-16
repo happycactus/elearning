@@ -6,6 +6,13 @@ $(function() {
     var inaction = false;
     var numQuestions = 50;
 
+    var icon1_width = $('.icon1 img').width();
+    var icon2_width = $('.icon2 img').width();
+    var icon3_width = $('.icon3 img').width();
+    var icon4_width = $('.icon4 img').width();
+    var icon5_width = $('.icon5 img').width();
+    var icon6_width = $('.icon6 img').width();
+
     //$('.restart').click();
     
     // $('form#frm_survey').submit(function(event){
@@ -92,7 +99,7 @@ $(function() {
     }
 
 
-    $('.holder').find('input:checkbox').on('click', function(event) {
+    $('.choicelist').find('input:checkbox').on('click', function(event) {
         //ADD class to label
         if ($(this).hasClass('checked')) {
             $(this).removeClass('checked');
@@ -101,7 +108,7 @@ $(function() {
         }
     });
 
-    $('.choicelist li').find('input').on('click', function(event) {
+    $('.choiceradio li').find('input').on('click', function(event) {
         event.preventDefault();
         
         //REMOVE class from other labels in same radio group
@@ -112,12 +119,9 @@ $(function() {
                
             }
         })
-        //console.log($(this));
+    
         $(this).addClass('checked');
-
-         // if (currentID == numQuestions){
-             //     activateSubmit();
-             // }
+    
     })    
 
   
@@ -130,6 +134,29 @@ $(function() {
 
     }
 
+
+    
+    $('button.accordion').click(function(){
+        var panel = this.nextElementSibling;
+        
+        if ($(this).hasClass('active')){
+        
+            $(panel).css({'max-height': 0 });
+            $('button.active i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+            this.classList.toggle("active");
+        } else {
+        
+            //Close all other windows
+            $('.panel').css({'max-height': 0}); 
+            $('button.active i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+            $('button.active').removeClass('active');
+
+            this.classList.toggle("active");
+            $(panel).css({'max-height':panel.scrollHeight + "px"});
+            $('button.active i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        }
+    })
+
     $('a#btn_next').on('click', function(event){
     	event.preventDefault();
     	
@@ -138,15 +165,15 @@ $(function() {
     	} else {
 	    	
             //q2 = remove insuline block & add previous button
-            if ($('.moveable.active').attr('id') == 'q1'){
-                $('.insuline_tekst').fadeOut();
-                $('#btn_previous').fadeIn('slow');
-            }
+            // if ($('.moveable.active').attr('id') == 'q1'){
+            //     $('.insuline_tekst').fadeOut();
+            //     $('#btn_previous').fadeIn('slow');
+            // }
             
             
             //q3 = remove man
             if ($('.moveable.active').attr('id') == 'q2'){
-                $('.man').fadeOut();
+                //$('.man').fadeOut();
                 $('form').submit();
             }
 
@@ -162,8 +189,27 @@ $(function() {
                 if ($('#movingtarget2').length > 0)
                     flyinarrows($('img#maintarget2'), $('#arrow4'), $('#arrow5'), $('#arrow6'));
             }
+            
+            if ($('.moveable.active').attr('id') == 'q7')
+                window.location.href = "stap5.html";
+
+
             if ($('.moveable.active').attr('id') == 'q8')
                 $('form').submit();
+
+
+            if ($('.moveable.active').attr('id') == 'q10'){
+                $('.manright').fadeOut();
+                iconanimation();
+
+            }
+
+            if ($('.moveable.active').attr('id') == 'q14')
+                window.location.href = "stap7.html";
+
+            if ($('.moveable.active').attr('id') == 'q15')
+                $('form').submit();
+            
 
             nextQuestion($('.moveable.active').attr('id'));
     	}
@@ -172,19 +218,32 @@ $(function() {
 	
 	$('a#btn_previous').on('click', function(event){
     	event.preventDefault();
-    	
-    	//q2 = remove insuline block & add previous button
-        if ($('.moveable.active').attr('id') == 'q2')
-            $('.insuline_tekst').fadeIn();
         
         if ($('.moveable.active').attr('id') == 'q3')
+            //window.location.href = "stap2.html";
             history.back(1);
 
         if ($('.moveable.active').attr('id') == 'q4')
+            //window.location.href = "stap3.html";
             history.back(1);
 
         if ($('.moveable.active').attr('id') == 'q5')
+            //window.location.href = "stap4.html";
             history.back(1);
+
+        if ($('.moveable.active').attr('id') == 'q7'){
+            if ($('#movingtarget2').length > 0)
+                flyinarrows($('img#maintarget2'), $('#arrow4'), $('#arrow5'), $('#arrow6'));
+        }
+
+        if ($('.moveable.active').attr('id') == 'q9')
+            //window.location.href = "stap5.html";
+            history.back(1);
+
+        if ($('.moveable.active').attr('id') == 'q11')
+            $('.manright').fadeIn();
+            
+
 
 
         if ($(this).hasClass('inactive')){
@@ -319,7 +378,39 @@ $(function() {
         }
 
 	}
+    
+    
+    
 
+
+    function iconanimation( ){
+        
+        var ORIGINAL_IMG_WIDTH = 827;
+        var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
+
+        $('.icon1 img').width( largeimgpercent * icon1_width );
+        $('.icon1').fadeIn();
+        setTimeout(function(){
+            $('.icon2 img').width( largeimgpercent * icon2_width );
+            $('.icon2').fadeIn();
+            setTimeout(function(){
+                $('.icon3 img').width( largeimgpercent * icon3_width );
+                $('.icon3').fadeIn();
+                setTimeout(function(){
+                    $('.icon4 img').width( largeimgpercent * icon4_width );
+                    $('.icon4').fadeIn();            
+                    setTimeout(function(){
+                        $('.icon5 img').width( largeimgpercent * icon5_width );
+                        $('.icon5').fadeIn();
+                        setTimeout(function(){
+                            $('.icon6 img').width( largeimgpercent * icon6_width );
+                            $('.icon6').fadeIn();
+                        }, 300);
+                    }, 300);
+                }, 300);                    
+            }, 300);
+        }, 300); 
+    }
 
     function slideFeature(slideOutTab, slideInTab, delaytimer) {
         delaytimer = (delaytimer == null || delaytimer == 0) ? 0 : delaytimer;
@@ -439,7 +530,6 @@ $(function() {
         $('body').css({ background: "#aa1025" });
         $('.introcontainer').css({left: -quizwidth});
         $('.questioncontainer').css({left: 0});
-
     }
 
     $(window).resize(function(){
@@ -481,14 +571,24 @@ $(function() {
     init();
 
     function init(){
-        if ($(".man").length > 0)               $('.man').hide();
-        if ($('.insuline_tekst').length > 0)    $('.insuline_tekst').hide();
+        if ($(".man").length > 0)               $('.man').fadeIn();
+        if ($('.insuline_tekst').length > 0)    $('.insuline_tekst').fadeIn();
         
         $('.moveable').css({width: quizwidth, height: quizheight});
         
+        $('.icon1').fadeOut();
+        $('.icon2').fadeOut();
+        $('.icon3').fadeOut();
+        $('.icon4').fadeOut();
+        $('.icon5').fadeOut();
+        $('.icon6').fadeOut();
+
+        
+
         pageAnimations();
     }
 
+    
     function beginIntro(){
         //BEX TODO: fix height per question
         //BEX TODO: fix responsive / mobile presentation of questions
@@ -496,9 +596,8 @@ $(function() {
 
         
 
-        var totalheading = $('.intro-header').height() +  $('.intro2').height() + $('.intro-footer').height();
-        var ORIGINAL_IMG_WIDTH = 827;
-        var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
+        //var totalheading = $('.intro-header').height() +  $('.intro2').height() + $('.intro-footer').height();
+        
         
         setTimeout(function(){
             slideFeature('.intro', '.intro2', 1000);
@@ -506,34 +605,8 @@ $(function() {
 
         
         setTimeout(function(){
-            $('.icon1 img').width( largeimgpercent * $('.icon1 img').width() );
-            $('.icon1').fadeIn();
-        }, 2500);
-
-        setTimeout(function(){
-            $('.icon2 img').width( largeimgpercent * $('.icon2 img').width() );
-            $('.icon2').fadeIn();
-        }, 2800);
-
-        setTimeout(function(){
-            $('.icon3 img').width( largeimgpercent * $('.icon3 img').width() );
-            $('.icon3').fadeIn();
-        }, 3100);
-        
-        setTimeout(function(){
-            $('.icon4 img').width( largeimgpercent * $('.icon4 img').width() );
-            $('.icon4').fadeIn();            
-        }, 3400);
-        
-        setTimeout(function(){
-            $('.icon5 img').width( largeimgpercent * $('.icon5 img').width() );
-            $('.icon5').fadeIn();
-        }, 3700);
-        
-        setTimeout(function(){
-            $('.icon6 img').width( largeimgpercent * $('.icon6 img').width() );
-            $('.icon6').fadeIn();
-        }, 4000);
+            iconanimation();
+        }, 2500);      
 
         setTimeout(function(){
            $('.man').fadeIn();

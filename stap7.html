@@ -29,41 +29,59 @@
     <div class="container">
         <div class="questioncontainer" style="">
             <div class="boxed">
-                <div class="moveable active" id="q4">
-                    <h2>Wat zegt een dagcurve</h2>
-                    <p class="limitedbox">Jeroen komt tijdens het volgende consult met zijn diabetes dagboekje terug. Welke conclusies kun je uit dit diabetes dagboekje trekken?<br /><br /></p>
+                <div class="moveable active" id="q15">
+                    <div class="preinsulinestage">Pre-Insuline fase</div>
+                    <h2>Accu-Chek® 360º View</h2>
+                    <p>Meer achtergrond informatie bij een dagcurve</p>
                     <div class="inner-wrap">
                         <div class="halfcol_l blockcenter">
-                            <img src="//cdn.myclang.com/public/files/1513/1/roche/2017-246-0288/images/agenda.png" style="" width="100%">
+                            <img src="images/calendar_filledin.png" width="100%">
                         </div>
                         <div class="halfcol_r">
                             <div class="greybox holder">
                                 <div class="smallpadding">
-                                    <h4 class="blue-txt">Vraag</h4>
-                                    <p>Kun je op basis van de informatie in dit diabetes dagboekje de juiste keuze voor insulinesoort en dosering maken?</p>
-                                    <form action="#" class="validate-form" name="frm_stap3" id="frm_stap3" method="post">
-                                        <ul class="choicelist choiceradio">
+                                    <h4>Vraag</h4>
+                                    <p>
+                                        Welke mogelijkheid van het 360º View dagboekje ondersteunt je het meeste om de therapie in te stellen? Rangschik de onderstaande termen op belangrijkheid.
+                                    </p>
+                                    <form action="#" class="validate-form" name="frm_survey" id="frm_survey" method="post">
+                                        <ul class="choicelist question-radio-vertical">
                                             <li class="choice">
-                                                <input type="radio" value="Gedeeltelijk" name="q4" id="q4_1" class="choice" />
-                                                <label for="q4_1"><span>&nbsp;</span>Gedeeltelijk</label>
+                                                <input type="radio" value="0" name="q15" id="q15_1" class="choice" />
+                                                <label for="q15_1"><span>&nbsp;</span>Bloedglucose waarde</label>
                                             </li>
                                             <li class="choice">
-                                                <input type="radio" value="Ja" name="q4" id="q4_2" class="choice" />
-                                                <label for="q4_2"><span>&nbsp;</span>Ja</label>
+                                                <input type="radio" value="1" name="q15" id="q15_2" class="choice" />
+                                                <label for="q15_2"><span>&nbsp;</span>7 punts dagcurve</label>
                                             </li>
                                             <li class="choice">
-                                                <input type="radio" value="Nee" name="q4" id="q4_3" class="choice" />
-                                                <label for="q4_3"><span>&nbsp;</span>Nee</label>
+                                                <input type="radio" value="2" name="q15" id="q15_3" class="choice" />
+                                                <label for="q15_3"><span>&nbsp;</span>Mate van inspanning</label>
+                                            </li>
+                                            <li class="choice">
+                                                <input type="radio" value="2" name="q15" id="q15_3" class="choice" />
+                                                <label for="q15_3"><span>&nbsp;</span>Grootte maaltijd</label>
+                                            </li>
+                                            <li class="choice">
+                                                <input type="radio" value="2" name="q15" id="q15_3" class="choice" />
+                                                <label for="q15_3"><span>&nbsp;</span>Bijzonderheden</label>
+                                            </li>
+                                            <li class="choice">
+                                                <input type="radio" value="2" name="q15" id="q15_3" class="choice" />
+                                                <label for="q15_3"><span>&nbsp;</span>Trendlijn</label>
                                             </li>
                                         </ul>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 
             </div>
+            <div class="manright"><img src="//cdn.myclang.com/public/files/1513/1/roche/2017-246-0288/images/man.png" alt="man" width="" class="manpos"></div>
             <div class="navigation">
                 <!-- <a onClick="_gaq.push(['_trackEvent', 'Navigation', 'Klik', 'Vorige Vraag']);" class="button to_left blue" id="btn_previous" href="#">Vorige vraag</a>                            -->
                 <a class="button to_left blue" id="btn_previous" href="#"><i class="fa fa-chevron-circle-left" aria-hidden="true">&nbsp;</i> Terug</a>
