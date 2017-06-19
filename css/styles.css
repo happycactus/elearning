@@ -47,8 +47,10 @@ p, ul{
     line-height:24px;
     text-align:left;
     margin-bottom:8px;
+    display:block;
 }
 h1, h2, h3, h4, h5{
+    position:relative;
     font-family: 'imago_promedium', Verdana, Arial, sans-serif;
     font-weight: normal;
     line-height: normal;
@@ -108,7 +110,7 @@ h5{
     height:auto;
     height:100%;
     background-color: white;
-    overflow: hidden;
+    /*overflow: hidden;*/
     
 }
 .introcontainer, .finalcontainer{
@@ -126,7 +128,7 @@ h5{
 }
 .finalcontainer {left:200%; display:none;}
 .questioncontainer {border-radius:10px; -moz-border-radius: 10px; -webkit-border-radius:10px;
-    position:relative; left:200%; width:100%; background:white; margin:0; height:96%; top:2%; max-width:1600px; margin: 0 auto;}
+    position:relative; left:200%; width:100%; background:white; margin:0; min-height:92%; height:auto; top:20px; max-width:1600px; margin: 0 auto 20px;}
 .intro-header {height:10%; position:relative; text-align:right;}
 .intro-footer {height:31px; position:absolute; right: 10px; bottom:0; text-align:right;}
 .intro-body {position: relative; margin: 0 auto; overflow:hidden; height:75%; display:table; width:100%}
@@ -160,12 +162,12 @@ strong{font-family: 'imago_promedium';}
 .twothirds {width:58%;}
 .onethird {width:38%;}
 
-.boxed {position:relative; width:100%; overflow:hidden; text-align:left; height:100%;}
+.boxed {position:relative; width:100%; overflow:hidden; text-align:left; height:300px; min-height:100%;}
 .inner-circle-box{ position:relative; margin:0 auto; padding-top:20px; max-width:560px;}
 .inner-wrap {position:relative; width:100%; text-align:left; height:100%;}
 
 .man {position:absolute;bottom: -15%; margin:0 auto; text-align:center; width:100%; z-index:5;}
-.manright{position:absolute; bottom: -3%; z-index:5; right:20px;}
+.manright{position:absolute; bottom: -20px; z-index:5; right:20px;}
 .manpos {display:block; margin: 0 auto; max-width:475px;}
 .boxed .halfcol_r, .boxed .halfcol_l{z-index:6;}
 .boxed .behindmainimage {z-index:4;}
@@ -256,6 +258,7 @@ div.panel {
     background: #f4f6fc; width:100%; max-width: 480px; min-height: 100px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; padding: 10px 30px;
     box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); box-sizing: border-box; line-height: 31px;
 }
+.small{font-size:0.9em;}
 .smallpadding{padding:20px;}
 form .greybox:hover {border:1px solid #a91024; cursor:pointer;}
 form .greybox.deactive {border:1px solid #a91024; background: rgba(169, 16, 36, .4);}

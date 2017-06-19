@@ -1,8 +1,15 @@
 $(function() {
+    
     var newwidth = $('body').width();
-    var newheight = $('.screen.quiz').height();
-    var quizwidth = $('.boxed').width() - 40;
-    var quizheight = $('.boxed').height() - 40;
+    var quizwidth = $('container').width() - 40;
+    var quizheight = $('.moveable.active').height();
+    var quizwidth = $('.boxed').width() - 55;
+    
+
+    $('.questioncontainer').height(quizheight + 40);
+    //var  = $('.boxed').height() - 40;
+    
+
     var inaction = false;
     var numQuestions = 50;
 
@@ -210,6 +217,8 @@ $(function() {
             if ($('.moveable.active').attr('id') == 'q15')
                 $('form').submit();
             
+            if ($('.moveable.active').attr('id') == 'q16')
+                $('form').submit();
 
             nextQuestion($('.moveable.active').attr('id'));
     	}
@@ -228,8 +237,8 @@ $(function() {
             history.back(1);
 
         if ($('.moveable.active').attr('id') == 'q5')
-            //window.location.href = "stap4.html";
-            history.back(1);
+            //window.location.href = "stap3.html";
+            history.back(2);
 
         if ($('.moveable.active').attr('id') == 'q7'){
             if ($('#movingtarget2').length > 0)
@@ -243,6 +252,20 @@ $(function() {
         if ($('.moveable.active').attr('id') == 'q11')
             $('.manright').fadeIn();
             
+
+        if ($('.moveable.active').attr('id') == 'q15')
+            //window.location.href = "stap6.html";
+            history.back(1);
+
+        if ($('.moveable.active').attr('id') == 'q16')
+            //window.location.href = "stap7.html";
+            history.back(1);
+
+        if ($('.moveable.active').attr('id') == 'q17')
+            //window.location.href = "stap8.html";
+            history.back(1);
+
+
 
 
 
@@ -278,6 +301,16 @@ $(function() {
     	 	$('a#btn_previous').addClass('inactive');
     	}
 	}
+
+    function adjustHeight(  ){
+        //console.log( "BERND: "+ $('.moveable.active')[0].id + "+ " + $('.moveable.active').height() ) ;
+        //console.log(quizheight = $('.moveable.active').height());
+        quizheight =  $('.moveable.active').height();
+        //console.log(quizheight + "+ " + $('.moveable.active')[0].id);
+        $('.moveable.active').css({width: quizwidth, height: quizheight});
+        $('.questioncontainer').height($('.moveable.active').height() + 40);
+
+    }
 	/*
 	 * GO TO NEXT QUESTION
 	 * Requires next questionID 
@@ -428,6 +461,7 @@ $(function() {
                             left: -newwidth
                         }, slideTimerOut, "easeOutQuint", function() {
                             $(this).removeClass('active');
+                            
                             //inaction = false;
                     });
                 }
@@ -435,10 +469,15 @@ $(function() {
                 if ($(slideInTab).length > 0) {
 
                     $(slideInTab).addClass('active').css('left', newwidth);
+                    
+                    adjustHeight();
+                    
                     $(slideInTab).animate({
                             left: 0
                         }, slideTimerIn, "easeOutQuint", function() {
+                            
 
+                            
                             inaction = false;
                             //enable radio check boxes
                            // $('.choicelist li.choice input:radio').attr('disabled', false);
@@ -532,12 +571,12 @@ $(function() {
         $('.questioncontainer').css({left: 0});
     }
 
-    $(window).resize(function(){
-        //Update quiz dimensions 
-        quizwidth = $('.boxed').width() - 40;
-        quizheight = $('.boxed').height() - 40;
-        $('.moveable').css({width: quizwidth, height: quizheight});
-    })
+    // $(window).resize(function(){
+    //     //Update quiz dimensions 
+    //     quizwidth = $('.boxed').width() - 40;
+    //     quizheight = $('.boxed').height() - 40;
+    //     $('.moveable').css({width: quizwidth, height: quizheight});
+    // })
 
 
     function flyinarrows(maintarget, arrow1, arrow2, arrow3){
@@ -572,20 +611,25 @@ $(function() {
 
     function init(){
         if ($(".man").length > 0)               $('.man').fadeIn();
+        if ($('.manright').length > 0)          $('.manright').hide();
         if ($('.insuline_tekst').length > 0)    $('.insuline_tekst').fadeIn();
         
-        $('.moveable').css({width: quizwidth, height: quizheight});
-        
-        $('.icon1').fadeOut();
-        $('.icon2').fadeOut();
-        $('.icon3').fadeOut();
-        $('.icon4').fadeOut();
-        $('.icon5').fadeOut();
-        $('.icon6').fadeOut();
+        //$('.moveable').css({width: quizwidth, height: quizheight});
+        //console.log(quizwidth + " x " + quizheight);
+        $('.icon1').hide();
+        $('.icon2').hide();
+        $('.icon3').hide();
+        $('.icon4').hide();
+        $('.icon5').hide();
+        $('.icon6').hide();
 
         
+        if ($('.moveable.active').attr('id') == 'q9')
+            $('.manright').fadeIn();
 
         pageAnimations();
+
+        adjustHeight();
     }
 
     
