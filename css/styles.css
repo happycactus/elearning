@@ -19,7 +19,7 @@
 }
 
 *{
-    font-family: 'imago_probook';
+    font-family: 'imago_probook', verdana, arial, sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -28,6 +28,7 @@ div{
     /*border: 1px solid red;*/
     
 }
+sup {font-size:0.6em;}
 
 body{
     background: #fff;
@@ -40,14 +41,16 @@ html, body{
     font-size:16px;
     line-height:24px;
     text-align:left;
+    color:#666;
 }
 p, ul{
     font-family: 'imago_probook', verdana, sans-serif;
-    font-size:1.2em;
+    font-size:18px;
     line-height:24px;
     text-align:left;
     margin-bottom:8px;
     display:block;
+    color:#666;
 }
 h1, h2, h3, h4, h5{
     position:relative;
@@ -70,7 +73,7 @@ h4{
     font-size: 1.2em; color:#a91024; text-align:left; padding-bottom:8px;
 }
 h5{
-    font-size: 1.1em;
+    font-size: 1.1em; text-align:left; margin-bottom:10px;
 }
 
 .inner-cont .screen.quiz .screencontent .question span.small{
@@ -110,7 +113,7 @@ h5{
     height:auto;
     height:100%;
     background-color: white;
-    /*overflow: hidden;*/
+    overflow: hidden;
     
 }
 .introcontainer, .finalcontainer{
@@ -163,10 +166,12 @@ strong{font-family: 'imago_promedium';}
 .onethird {width:38%;}
 
 .boxed {position:relative; width:100%; overflow:hidden; text-align:left; height:300px; min-height:100%;}
+.miniboxed {position:relative; width:100%; overflow:visible; text-align:left;}
 .inner-circle-box{ position:relative; margin:0 auto; padding-top:20px; max-width:560px;}
-.inner-wrap {position:relative; width:100%; text-align:left; height:100%;}
+.inner-wrap {position:relative; width:100%; text-align:left; min-height:80%;}
+.top-wrap { min-height:10%; }
 
-.man {position:absolute;bottom: -15%; margin:0 auto; text-align:center; width:100%; z-index:5;}
+.man {position:absolute;bottom: -20px; overflow:hidden; margin:0 auto; text-align:center; width:100%; z-index:5;}
 .manright{position:absolute; bottom: -20px; z-index:5; right:20px;}
 .manpos {display:block; margin: 0 auto; max-width:475px;}
 .boxed .halfcol_r, .boxed .halfcol_l{z-index:6;}
@@ -174,7 +179,7 @@ strong{font-family: 'imago_promedium';}
 .insuline_box{width:100%; position: absolute; margin:0 auto; bottom: 11%; z-index:6;}
 .insuline_tekst {margin:0 auto; width:40%; border:1px solid #878786; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; padding:2%; background:rgba(255,255,255,0.5);}
 
-.moveable {position:absolute; padding:20px; left:200%;}
+.moveable {border-radius:10px; -moz-border-radius: 10px; -webkit-border-radius:10px; position:absolute; padding:20px; left:200%;}
 .moveable.active {left:0;}
 
 .blue-txt{ color: #0066b1; }
@@ -186,7 +191,7 @@ strong{font-family: 'imago_promedium';}
     margin: -13px 10px 0 -20px;
 }
 
-ul.reddots{ list-style: none; padding-left: 20px; text-align: left; }
+ul.reddots{ list-style: none; padding-left: 20px; text-align: left; margin-bottom:20px;}
 ul.reddots li{ position: relative; }
 ul.reddots li::before{ width: 6px; height: 6px; left: -20px; top: 12px; content: " "; background: #a91024; position: absolute; display: inline-block; line-height: 31px;}
 ul.reddots li ul { list-style: none; margin-left: 20px; }
@@ -251,9 +256,14 @@ div.panel {
 #arrow2, #arrow5{top:-200%; left:200%}
 #arrow3, #arrow6{top:-200%; left:200%}
 
+/** Stap 9 **/
+.movingblock{ display:inline-block;  }
+.growingblock_100{ width:30px; padding:20px 30px; background: #e5feff; height:0;
+}
 
 /*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*/
-.greybox{ display: flex; flex-direction: row; align-items: center; justify-content: space-around; margin-bottom:20px; border:1px solid #f4f6fc;}
+.greybox{ align-items: center; justify-content: space-around; margin-bottom:20px; border:1px solid #f4f6fc;}
+.flexbox {display: flex; flex-direction: row;}
 .greybox, .question-box, .info-box{
     background: #f4f6fc; width:100%; max-width: 480px; min-height: 100px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; padding: 10px 30px;
     box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); box-sizing: border-box; line-height: 31px;
@@ -287,7 +297,7 @@ form .greybox.deactive {border:1px solid #a91024; background: rgba(169, 16, 36, 
     display: inline-block;
     vertical-align: top;
     width:100%;
-    font-size:1.2em;
+    font-size:1em;
     line-height:20px;
     text-align:left;
     padding:0px 2px;
@@ -349,7 +359,7 @@ input[type=text], input[type=text], input[type=number]{
 .question-radio-horizontal input[type="radio"]+label{ margin-right: 20px;}
 
 .question-radio-vertical input[type="radio"]{ display: none; }
-.question-radio-vertical input[type="radio"]+label{ display: block; width: 100%; max-width: 884px; padding: 10px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
+.question-radio-vertical input[type="radio"]+label{ display: block; max-width: 75%; padding: 10px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
 .question-radio-vertical input[type="radio"]:checked+label{ background: #a91024; color: #FFF; }
 
 .question-radio-vertical.toetsvragen input[type="radio"]+label{ text-align: left; }
@@ -363,7 +373,7 @@ input[type=text], input[type=text], input[type=number]{
 .question-checkbox-vertical input[type="checkbox"]:checked+label{ background: #a91024; color: #FFF; }
 
 /* PROGRESS BAR QUESTIONS */
-.progress-bar{ position: absolute; width: 100%; max-width: 884px; height: 30px; bottom: 40px; border-radius: 15px; display: flex; justify-content: space-around; overflow:hidden; }
+.progress-bar{ position: absolute; width: 100%; max-width: 884px; height: 30px; bottom: 70px; border-radius: 15px; display: flex; justify-content: space-around; overflow:hidden; }
 .progress-item{ height: 30px; flex: 1 auto; background: #b7b7b7; position: relative; }
 .progress-item::before{ content: ""; display: block;  width: 30px; height: 30px; background: #b7b7b7; transform: rotate(45deg); position: absolute; right: -15px; z-index: 999; border: 2px solid #FFF; border-bottom: none; border-left: none; }
 .progress-item:last-of-type::before{ display: none; }
@@ -371,7 +381,7 @@ input[type=text], input[type=text], input[type=number]{
 
 .moveable#q17, .moveable#q18{ background: #FFF url(../images/hand.png) no-repeat bottom right; background-size: auto 80%; }
 .moveable#q24, .moveable#q25, .moveable#q26{ background: #FFF url(../images/bg-voedingsrichtlijn.jpg) no-repeat bottom center; background-size: cover; border-radius: 10px; }
-.ndf-source{ background: rgba(255, 255, 255, 0.6); position: absolute; bottom: 40px; padding: 5px 20px; border-radius: 10px; box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); }
+.ndf-source{ background: rgba(255, 255, 255, 0.6); position: absolute; bottom: 50px; padding: 5px 20px; border-radius: 10px; box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); }
 
 /*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*//*PREPS*/
 a.button{

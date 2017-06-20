@@ -1,14 +1,7 @@
 $(function() {
     
-    var newwidth = $('body').width();
-    var quizwidth = $('container').width() - 40;
-    var quizheight = $('.moveable.active').height();
-    var quizwidth = $('.boxed').width() - 55;
-    
-
-    $('.questioncontainer').height(quizheight + 40);
-    //var  = $('.boxed').height() - 40;
-    
+    var newwidth = $('body').width();    
+    var quizwidth = $('.container').width() - 55;
 
     var inaction = false;
     var numQuestions = 50;
@@ -133,13 +126,7 @@ $(function() {
 
   
 
-    function pageAnimations(){
-
-        //ADD CUSTOM ANIMATION PAGES HERE
-        if ($("#movingtarget").length > 0)
-            flyinarrows($('img#maintarget'), $('#arrow1'), $('#arrow2'), $('#arrow3'));
-
-    }
+    
 
 
     
@@ -163,6 +150,8 @@ $(function() {
             $('button.active i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
         }
     })
+
+    var iflyInTextCount = 0;
 
     $('a#btn_next').on('click', function(event){
     	event.preventDefault();
@@ -220,7 +209,51 @@ $(function() {
             if ($('.moveable.active').attr('id') == 'q16')
                 $('form').submit();
 
-            nextQuestion($('.moveable.active').attr('id'));
+            if ($('.moveable.active').attr('id') == 'q19'){
+                $('.manright').fadeIn();
+            }
+
+            if ($('.moveable.active').attr('id') == 'q20'){
+                $('.manright').fadeOut();
+            }
+
+            if ($('.moveable.active').attr('id') == 'q26'){
+                $('.manright').fadeIn();
+                iflyInTextCount = 0;
+            }
+
+            if ($('.moveable.active').attr('id') == 'q27'){
+                if (iflyInTextCount == 0) {
+                    iflyInTextCount++;
+                    $('.delay1').fadeIn('2000');
+                    exit();
+                }
+                if (iflyInTextCount == 1) {
+                    $('.delay2').fadeIn('2000');
+                    iflyInTextCount++;
+                    exit();
+                }
+                if (iflyInTextCount == 2 ){
+                    
+                    $('.manright').fadeOut();
+                    //iflyInTextCount = 0;
+                }
+            }
+
+
+            
+            
+            if ($('.moveable.active').attr('id') == 'q35'){
+                $('.manright').fadeIn();
+            }
+
+            if ($('.moveable.active').attr('id') == 'q36'){
+                window.location.href = "stap10.html";
+            }
+
+            //} else {
+                nextQuestion($('.moveable.active').attr('id'));
+            //}
     	}
 
     });
@@ -265,9 +298,28 @@ $(function() {
             //window.location.href = "stap8.html";
             history.back(1);
 
+        if ($('.moveable.active').attr('id') == 'q20'){
+            $('.manright').fadeOut();
+        }
 
+        if ($('.moveable.active').attr('id') == 'q21'){
+            $('.manright').fadeIn();
+        }
 
+        if ($('.moveable.active').attr('id') == 'q28'){
+            $('.manright').fadeIn();
+        }
 
+        if ($('.moveable.active').attr('id') == 'q27'){
+            $('.manright').fadeOut();
+            iflyInTextCount = 0;
+            $('.delay1').hide();
+            $('.delay2').hide();
+        }
+
+        if ($('.moveable.active').attr('id') == 'q36'){
+                $('.manright').fadeOut();
+        }
 
         if ($(this).hasClass('inactive')){
     		return false;
@@ -303,12 +355,24 @@ $(function() {
 	}
 
     function adjustHeight(  ){
-        //console.log( "BERND: "+ $('.moveable.active')[0].id + "+ " + $('.moveable.active').height() ) ;
-        //console.log(quizheight = $('.moveable.active').height());
-        quizheight =  $('.moveable.active').height();
-        //console.log(quizheight + "+ " + $('.moveable.active')[0].id);
-        $('.moveable.active').css({width: quizwidth, height: quizheight});
-        $('.questioncontainer').height($('.moveable.active').height() + 40);
+        var quizwidth = $('.questioncontainer').width();
+        
+        $('.moveable.active').css({width: quizwidth - 40});
+        var quizheight = $('.moveable.active').height();
+        
+        $('.boxed').height( $('.questioncontainer').height());
+        var boxedheight = $('.boxed').height();
+
+        console.log(quizheight);
+
+        if ( boxedheight < (quizheight + 40) ) {
+            $('.moveable.active').css({height: quizheight + 40});
+            $('.questioncontainer .boxed').height(quizheight + 80);
+        } else {
+            console.log('ddd');
+            $('.moveable.active').css({height: boxedheight - 40});
+        }
+        
 
     }
 	/*
@@ -550,26 +614,7 @@ $(function() {
     })
 
    
-    if ($("#startline").length > 0){
-        
-        beginIntro();
-
-        $('#btn_previous').fadeOut();
-
-        setTimeout(function(){
-            $('.container').css({ background: "#aa1025", width: "100%" });
-            setTimeout(function(){
-                $('body').css({ background: "#aa1025" });
-                $('.container').css({width: "96%" });
-            }, 900);
-        }, 6200);
-  
-     } else {
-        $('.container').css({ background: "#aa1025", width: "96%" });
-        $('body').css({ background: "#aa1025" });
-        $('.introcontainer').css({left: -quizwidth});
-        $('.questioncontainer').css({left: 0});
-    }
+    
 
     // $(window).resize(function(){
     //     //Update quiz dimensions 
@@ -627,9 +672,36 @@ $(function() {
         if ($('.moveable.active').attr('id') == 'q9')
             $('.manright').fadeIn();
 
-        pageAnimations();
+        //ADD CUSTOM ANIMATION PAGES HERE
+        if ($("#movingtarget").length > 0)
+           flyinarrows($('img#maintarget'), $('#arrow1'), $('#arrow2'), $('#arrow3'));
 
         adjustHeight();
+
+        //SPECIAL BACKGROUND FOR FIRST PAGE
+        if ($("#startline").length > 0){
+            beginIntro();
+
+            $('#btn_previous').fadeOut();
+
+            setTimeout(function(){
+                $('.container').css({ background: "#aa1025", width: "100%" });
+                setTimeout(function(){
+                    $('body').css({ background: "#aa1025" });
+                    $('.container').css({width: "96%"});//, 'overflow' : 'visible' });
+                }, 1000);
+            }, 6200);
+        
+         } else if ($("#endline").length > 0){
+            //do nothing
+         } else {
+            $('.container').css({ background: "#aa1025", width: "96%" });
+            $('body').css({ background: "#aa1025" });
+            $('.introcontainer').css({left: -newwidth});
+            $('.questioncontainer').css({left: 0});
+            $('.container').css({'height' : 'auto' });
+        }
+
     }
 
     
