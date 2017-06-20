@@ -241,7 +241,11 @@ $(function() {
             }
 
 
-            
+            if ($('.moveable.active').attr('id') == 'q32'){
+                $('.growingblock_100').animate(function(){
+                    $(this).height(30)
+                }, 3000);
+            }
             
             if ($('.moveable.active').attr('id') == 'q35'){
                 $('.manright').fadeIn();
