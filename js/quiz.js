@@ -364,7 +364,7 @@ $(function() {
         $('.moveable.active').css({width: quizwidth - 40});
         var quizheight = $('.moveable.active').height();
         
-        $('.boxed').height( $('.questioncontainer').height());
+        $('.boxed').height( $('.questioncontainer').height() + 40);
         var boxedheight = $('.boxed').height();
 
         console.log(quizheight);

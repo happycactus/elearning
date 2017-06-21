@@ -30,7 +30,9 @@
 }
 
 @media screen and (max-width: 850px){
-	
+	.top-wrap {min-height:auto;}
+	.greybox{ padding: 10px;}
+
 	/*.questioncontainer {height:auto; margin-bottom:2%;}*/
 	/*.container {height:auto;}
 	.boxed{overflow:auto;}*/
@@ -46,57 +48,20 @@
 	}
 	
 	input[type="submit"] {font-size:18px !important;}
-	.choicelist li{ display: inline-block; 	}
-	.choicelistchoiceblock{  text-align: center;}
-	.choicelistchoiceblock li{  display: inline-block;   zoom: .7;}
-	.choicelist li.mayfit{ width: 90px; }
-	ul li.choicetitle {  margin: 41px auto -20px; display: block;}
-
-		.choicelist li.multicheck{
-			width: auto;
-			padding: 0px
-		}
-		.choicelist li.fullcheckwidth{
-			width: 100%;
-			padding: 0px
-		}
-
-	.content .inner-cont .screen.quiz .screencontent .question {
-		margin:0 auto; position:relative; overflow:hidden; width:95%;
-		font-size: 16px;
-	}
-	.content .inner-cont .screen.quiz .screencontent .question span.small{
-		font-size: 16px;
-	}
-	.in-wrap{
-		width: 96%!important;
-	}
-	.generalcontent{
-		width: 90%!important;
-		margin: 0 auto;
-	}
-		
-	.title img{
-		width: 100%!important;
-		height: auto;
-	}
+	.choicelist li{ display: inline-block; }
+	
 	.halfcol_l, .halfcol_r{
 		width: 100%;
 		float: none;
 		clear:both;
 	}
-	.space{
-		display: none;
-	}
-	h2{font-size: 25px;}
+	
+	body {
+		font-size:14px;}
+	/*h2{font-size: 25px;}
 	h1{font-size: 30px;}
-	ul.questions li {
-		font-size: 16px;
-		margin-top: 10px;
-						width: 42px;
-						height: 42px;
-						line-height: 42px;
-	}
+	*/
+
 }
 
 @media screen and (max-width: 480px){
