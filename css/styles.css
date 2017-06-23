@@ -46,7 +46,7 @@ html, body{
 p, ul{
     font-family: 'imago_probook', verdana, sans-serif;
     font-size:18px;
-    line-height:24px;
+    line-height:1.2em;
     text-align:left;
     margin-bottom:8px;
     display:block;
@@ -60,11 +60,11 @@ h1, h2, h3, h4, h5{
     text-align:center;
 }
 h1{
-    color:white; font-size: 60px; font-weight:600;
+    color:white; font-size: 5em; font-weight:600;
     display:table-cell; vertical-align:middle; text-align:center;width: 100%; margin: 0 auto;
 }
 h2{
-    text-align:left; font-size: 54px; color:#a91024; margin-bottom:30px; margin-top:20px;
+    text-align:left; font-size: 4em; color:#a91024; margin-bottom:30px; margin-top:20px;
 }
 h3{
     font-size: 40px; color:#a91024; text-align:center;
@@ -131,7 +131,7 @@ h5{
 }
 .finalcontainer {left:200%; display:none;}
 .questioncontainer {border-radius:10px; -moz-border-radius: 10px; -webkit-border-radius:10px;
-    position:relative; left:200%; width:100%; background:white; margin:0; min-height:92%; height:auto; top:20px; max-width:1600px; margin: 0 auto 20px;}
+    position:relative; left:200%; width:100%; background:white; margin:0; min-height:95%; height:auto; top:20px; max-width:1600px; margin: 0 auto 20px;}
 .intro-header {height:10%; position:relative; text-align:right;}
 .intro-footer {height:31px; position:absolute; right: 10px; bottom:0; text-align:right;}
 .intro-body {position: relative; margin: 0 auto; overflow:hidden; height:75%; display:table; width:100%}
@@ -171,12 +171,13 @@ strong{font-family: 'imago_promedium';}
 .inner-wrap {position:relative; width:100%; text-align:left; min-height:80%;}
 .top-wrap { min-height:10%; }
 
-.man {position:absolute;bottom: -20px; overflow:hidden; margin:0 auto; text-align:center; width:100%; z-index:5;}
+.man {position:absolute;bottom: -20px; overflow:hidden; margin:0 auto; text-align:center; left:36%;/* width:100%;*/ z-index:5;}
+.extrapaddingman{bottom:-100px;}
 .manright{position:absolute; bottom: -20px; z-index:5; right:20px;}
 .manpos {display:block; margin: 0 auto; max-width:475px;}
 .boxed .halfcol_r, .boxed .halfcol_l{z-index:6;}
 .boxed .behindmainimage {z-index:4;}
-.insuline_box{width:100%; position: absolute; margin:0 auto; bottom: 11%; z-index:6;}
+.insuline_box{width:100%; position: absolute; margin:0 auto; left:0; bottom: 11%; z-index:6;}
 .insuline_tekst {margin:0 auto; width:40%; border:1px solid #878786; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; padding:2%; background:rgba(255,255,255,0.5);}
 
 .moveable {border-radius:10px; -moz-border-radius: 10px; -webkit-border-radius:10px; position:absolute; padding:20px; left:200%;}
@@ -185,12 +186,12 @@ strong{font-family: 'imago_promedium';}
 .blue-txt{ color: #0066b1; }
 .grey-txt{ color: #575756; }
 
-.big-red{ background: #a91024; display: block; width: 550px; height: 80px; margin-bottom: 20px; border-radius: 15px; padding: 26px; box-sizing: border-box; line-height: 100%; color: #FFF; font-family: 'imago_promedium'; font-size: 1.7em; }
+.big-red{ background: #a91024; display: block; width: 550px; margin-bottom: 20px; border-radius: 15px; padding: 26px; box-sizing: border-box; line-height: 100%; color: #FFF; font-family: 'imago_promedium'; font-size: 1.7em; }
 
 .choicelist li.choice input[type="radio"] + label span, .choicelist li.choice input[type="checkbox"] + label span {
     margin: -13px 10px 0 -20px;
 }
-
+.navpadding {padding:30px 0 0 0;}
 ul.reddots{ list-style: none; padding-left: 20px; text-align: left; margin-bottom:20px;}
 ul.reddots li{ position: relative; }
 ul.reddots li::before{ width: 6px; height: 6px; left: -20px; top: 12px; content: " "; background: #a91024; position: absolute; display: inline-block; line-height: 31px;}
@@ -203,9 +204,9 @@ ul.reddots li ul li::before{ width: 6px; height: 6px; left: -20px; top: 12px; co
 .step-box section{	min-height: 190px; width: 100%; background: #f4f6fc; border: 1px solid #878786; border-top: none; box-sizing: border-box; padding: 30px; line-height: 32px; }
 .step-arrow{ width: 0; height: 0; border-top: 40px solid transparent; border-bottom: 40px solid transparent; border-left: 40px solid #878786; margin-top: 20px; }
 
-/** ACCORDIAN STYLING **/
+/** ACCORDION STYLING **/
 
-.accordionblock .accordion{position:absolute; z-index:2; bottom:15px; left:46%; width:35px; height:35px; text-align:center; background-color:#0066b1; border-radius:20px;}
+.accordionblock .accordion{position:absolute; z-index:10; bottom:15px; left:46%; width:35px; height:35px; text-align:center; background-color:#0066b1; border-radius:20px;}
 button.accordion {
     color: #444;
     cursor: pointer;
@@ -252,21 +253,139 @@ div.panel {
 /* ARROWS */
 .arrow-block {position:relative; overflow:visible; width:100%; margin:30px auto; max-width:378px;}
 .arrow {position:absolute;}
-#arrow1, #arrow4{top:-200%; left:-100%}
-#arrow2, #arrow5{top:-200%; left:200%}
-#arrow3, #arrow6{top:-200%; left:200%}
+#arrow1, #arrow4{top:-200%; left:-100%; width:274px;}
+#arrow2, #arrow5{top:-200%; left:200%; width: 315px;}
+#arrow3, #arrow6{top:-200%; left:200%; width: 253px;}
 
-/** Stap 9 **/
-.movingblock{ display:inline-block;  }
-.growingblock_100{ width:30px; padding:20px 30px; background: #e5feff; height:0;
+/** MOVING BAR CHART AND MOVING PIE CHART **/
+.movingblock{ height:150px; width:100%; max-width:450px; display:inline-block; position:relative;}
+.movingblock ul { color:white; }
+
+.movingblock li {
+      text-align: right;
+      padding-right: 1em;
+      list-style: none;
+      height: 10px;
+      position: relative;
+      bottom: 0;
+}
+  
+.movingblock #bars li, .movingblock #bars2 li {
+    display: inline-block;
+    width: 42%;
+    height: 120px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    padding-top:50px;
+    margin-top:40px;
+}
+.movingblock #bars li .bar, .movingblock #bars2 li .bar  {
+    display: block;
+    width: 79%;
+    margin-left: 15px;
+    background: #ab0d20;
+    position: absolute;
+    box-shadow: #600711 -7px -7px 0;
+    bottom: 0;
+    color:white;
+    padding-top:20px;
+}
+.middlevs{ position:absolute; left:37%; top: 85%; display:inline-block; padding:20px;font-size:2em; color:black; }
+.innertext {font-size:4em;font-family:'imago_promedium', Verdana, Arial, sans-serif;}
+/* PIE */
+.pie span{font-size:0.15em; text-align:center; color:white;}
+.mainpie span{font-size:0.15em; text-align:center; color:white; position:absolute; top:10%; right:-22%;}
+
+.pie, .mainpie {
+  font-size: 250px; /* Adjust size here */
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  border-radius: 50%;
+  -webkit-translate3d(0,0,0);
+  box-shadow: #600711 -3px 3px 0;
+  margin-bottom:90px;
 }
 
+.pie_inner {
+  height: 100%;
+}
+
+.pie_inner-circle {
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em; 
+  width: 0.5em;
+  height: 0.5em;
+  margin-left: -0.25em;
+  margin-top: -0.25em;
+  border-radius: 50%;
+  text-align:center;
+}
+
+.pie_half {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pie_half-left {
+  left: 0;
+  right: auto;
+}
+
+.pie_circle-right,
+.pie_circle-left {
+  float: left;
+  width: 200%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.pie_circle-right {
+  float: right;
+}
+
+.pie_blocker-1,
+.pie_blocker-2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  background-color: #777;
+  -webkit-transform:
+    rotate(0deg)
+    translate(0, -25%);
+}
+
+.pie_blocker-1 {
+  -webkit-transform-origin: 0 25%;
+}
+
+.pie_blocker-2 {
+  left: auto;
+  right: 0;
+  -webkit-transform-origin: 100% 25%;
+}
+
+
 /*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*/
-.greybox{ align-items: center; justify-content: space-around; margin-bottom:20px; border:1px solid #f4f6fc;}
+.greybox{ align-items: center; justify-content: space-around; border:1px solid #f4f6fc;}
 .flexbox {display: flex; flex-direction: row;}
 .greybox, .question-box, .info-box{
     background: #f4f6fc; width:100%; max-width: 480px; min-height: 100px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; padding: 10px 30px;
-    box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); box-sizing: border-box; line-height: 31px; margin: 0 auto;
+    box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); box-sizing: border-box; line-height: 31px; margin: 0 auto 20px;
 }
 .small{font-size:0.9em;}
 .smallpadding{padding:20px;}
@@ -280,7 +399,7 @@ form .greybox.deactive {border:1px solid #a91024; background: rgba(169, 16, 36, 
 .limitedbox {max-width:550px;}
 
 .option-icon{ width: 100px; height: 114px; }
-.option-txt{  padding-left: 30px; font-size: 1.2em; line-height: 31px; }
+.option-txt{  padding-left: 30px; font-size: 1.2em; line-height: 1.4em; width:100%}
 
 .delay1 {display:none; -webkit-transition-delay: 5s; /* Safari */
     transition-delay: 5s;}
@@ -359,7 +478,7 @@ input[type=text], input[type=text], input[type=number]{
 .question-radio-horizontal input[type="radio"]+label{ margin-right: 20px;}
 
 .question-radio-vertical input[type="radio"]{ display: none; }
-.question-radio-vertical input[type="radio"]+label{ display: block; max-width: 75%; padding: 10px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
+.question-radio-vertical input[type="radio"]+label{ display: block; max-width: 75%; padding: 10px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease;}
 .question-radio-vertical input[type="radio"]:checked+label{ background: #a91024; color: #FFF; }
 
 .question-radio-vertical.toetsvragen input[type="radio"]+label{ text-align: left; }

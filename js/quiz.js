@@ -1,10 +1,10 @@
 $(function() {
     
     var newwidth = $('body').width();    
-    var quizwidth = $('.container').width() - 55;
-
+    var quizwidth = $('.questioncontainer').width() - 40;
+    var percent = 0;
     var inaction = false;
-    var numQuestions = 50;
+    var numQuestions = 41;
 
     var icon1_width = $('.icon1 img').width();
     var icon2_width = $('.icon2 img').width();
@@ -132,12 +132,16 @@ $(function() {
     
     $('button.accordion').click(function(){
         var panel = this.nextElementSibling;
-        
+        console.log(this.nextElementSibling);
+        console.log($('button.accordion')[0].nextElementSibling);
+
         if ($(this).hasClass('active')){
         
             $(panel).css({'max-height': 0 });
             $('button.active i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
             this.classList.toggle("active");
+
+            //$('.moveable.active').height( $('.moveable.active').height() - $('.panel').height() );
         } else {
         
             //Close all other windows
@@ -146,9 +150,12 @@ $(function() {
             $('button.active').removeClass('active');
 
             this.classList.toggle("active");
-            $(panel).css({'max-height':panel.scrollHeight + "px"});
+            $(panel).css({'max-height':(panel.scrollHeight + 40) + "px"});
             $('button.active i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+
+            //$('.moveable.active').height( $('.moveable.active').height() + $('.panel').height() );
         }
+
     })
 
     var iflyInTextCount = 0;
@@ -168,30 +175,24 @@ $(function() {
             
             
             //q3 = remove man
-            if ($('.moveable.active').attr('id') == 'q2'){
-                //$('.man').fadeOut();
-                $('form').submit();
-            }
+            if ($('.moveable.active').attr('id') == 'q2')                  $('form').submit();
 
-            if ($('.moveable.active').attr('id') == 'q3')
-                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q3')                  $('form').submit();        
+
+            if ($('.moveable.active').attr('id') == 'q4')                  $('form').submit();
             
-
-            if ($('.moveable.active').attr('id') == 'q4')
-                $('form').submit();
-            
-
             if ($('.moveable.active').attr('id') == 'q5'){
                 if ($('#movingtarget2').length > 0)
                     flyinarrows($('img#maintarget2'), $('#arrow4'), $('#arrow5'), $('#arrow6'));
             }
+
+            if ($('.moveable.active').attr('id') == 'q6')                  initArrows();
             
-            if ($('.moveable.active').attr('id') == 'q7')
-                window.location.href = "stap5.html";
+                
+            if ($('.moveable.active').attr('id') == 'q7')                  window.location.href = $('#btn_submit').val();
 
 
-            if ($('.moveable.active').attr('id') == 'q8')
-                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q8')                  $('form').submit();
 
 
             if ($('.moveable.active').attr('id') == 'q10'){
@@ -200,22 +201,15 @@ $(function() {
 
             }
 
-            if ($('.moveable.active').attr('id') == 'q14')
-                window.location.href = "stap7.html";
+            if ($('.moveable.active').attr('id') == 'q14')                window.location.href = "stap7.html";
 
-            if ($('.moveable.active').attr('id') == 'q15')
-                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q15')                $('form').submit();
             
-            if ($('.moveable.active').attr('id') == 'q16')
-                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q16')                $('form').submit();
 
-            if ($('.moveable.active').attr('id') == 'q19'){
-                $('.manright').fadeIn();
-            }
+            if ($('.moveable.active').attr('id') == 'q19')                $('.manright').fadeIn();
 
-            if ($('.moveable.active').attr('id') == 'q20'){
-                $('.manright').fadeOut();
-            }
+            if ($('.moveable.active').attr('id') == 'q20')                $('.manright').fadeOut();
 
             if ($('.moveable.active').attr('id') == 'q26'){
                 $('.manright').fadeIn();
@@ -226,81 +220,78 @@ $(function() {
                 if (iflyInTextCount == 0) {
                     iflyInTextCount++;
                     $('.delay1').fadeIn('2000');
-                    exit();
+                    return;
                 }
                 if (iflyInTextCount == 1) {
                     $('.delay2').fadeIn('2000');
                     iflyInTextCount++;
-                    exit();
+                    return;
                 }
                 if (iflyInTextCount == 2 ){
-                    
                     $('.manright').fadeOut();
-                    //iflyInTextCount = 0;
                 }
             }
 
+            if ($('.moveable.active').attr('id') == 'q31'){
+                initBar('#bars');
+                animateBar('#bars');
+            }
 
             if ($('.moveable.active').attr('id') == 'q32'){
-                $('.growingblock_100').animate(function(){
-                    $(this).height(30)
-                }, 3000);
+                initPie();
+                animatePie();
+            }
+            
+            if ($('.moveable.active').attr('id') == 'q33'){
+                initBar('#bars2');
+                animateBar('#bars2');
             }
             
             if ($('.moveable.active').attr('id') == 'q35'){
                 $('.manright').fadeIn();
             }
 
-            if ($('.moveable.active').attr('id') == 'q36'){
-                window.location.href = "stap10.html";
-            }
+            if ($('.moveable.active').attr('id') == 'q36')
+                if ($('#btn_submit').val() != null){
+                    window.location.href = $('#btn_submit').val();
+                }   
 
             //} else {
                 nextQuestion($('.moveable.active').attr('id'));
             //}
     	}
 
-    });
-	
+    });    
+
+
+
+
 	$('a#btn_previous').on('click', function(event){
     	event.preventDefault();
         
-        if ($('.moveable.active').attr('id') == 'q3')
-            //window.location.href = "stap2.html";
-            history.back(1);
-
-        if ($('.moveable.active').attr('id') == 'q4')
-            //window.location.href = "stap3.html";
-            history.back(1);
+        
 
         if ($('.moveable.active').attr('id') == 'q5')
-            //window.location.href = "stap3.html";
-            history.back(2);
+            window.location.href = $('#btn_back').val();
+
+        if ($('.moveable.active').attr('id') == 'q6') {
+            if ($("#movingtarget").length > 0)
+                flyinarrows($('img#maintarget'), $('#arrow1'), $('#arrow2'), $('#arrow3'));
+        }
+
 
         if ($('.moveable.active').attr('id') == 'q7'){
             if ($('#movingtarget2').length > 0)
                 flyinarrows($('img#maintarget2'), $('#arrow4'), $('#arrow5'), $('#arrow6'));
         }
 
-        if ($('.moveable.active').attr('id') == 'q9')
-            //window.location.href = "stap5.html";
-            history.back(1);
+        if ($('.moveable.active').attr('id') == 'q9')           window.location.href = $('#btn_back').val();
 
-        if ($('.moveable.active').attr('id') == 'q11')
-            $('.manright').fadeIn();
-            
+        if ($('.moveable.active').attr('id') == 'q11')          $('.manright').fadeIn();
 
-        if ($('.moveable.active').attr('id') == 'q15')
-            //window.location.href = "stap6.html";
-            history.back(1);
-
-        if ($('.moveable.active').attr('id') == 'q16')
-            //window.location.href = "stap7.html";
-            history.back(1);
-
-        if ($('.moveable.active').attr('id') == 'q17')
-            //window.location.href = "stap8.html";
-            history.back(1);
+        if ($('.moveable.active').attr('id') == 'q12')          iconanimation();
+                    
+        if ($('.moveable.active').attr('id') == 'q17')          window.location.href = $('#btn_back').val();
 
         if ($('.moveable.active').attr('id') == 'q20'){
             $('.manright').fadeOut();
@@ -321,8 +312,24 @@ $(function() {
             $('.delay2').hide();
         }
 
+        if ($('.moveable.active').attr('id') == 'q33'){
+            initBar('#bars');
+            animateBar('#bars');
+        }
+        
+        if ($('.moveable.active').attr('id') == 'q34'){
+                initPie();
+                animatePie();
+        }
+
+        if ($('.moveable.active').attr('id') == 'q35'){
+            initBar('#bars2');
+            animateBar('#bars2');
+        }
+
         if ($('.moveable.active').attr('id') == 'q36'){
-                $('.manright').fadeOut();
+            $('.manright').fadeOut();
+
         }
 
         if ($(this).hasClass('inactive')){
@@ -358,27 +365,45 @@ $(function() {
     	}
 	}
 
-    function adjustHeight(  ){
-        var quizwidth = $('.questioncontainer').width();
-        
-        $('.moveable.active').css({width: quizwidth - 40});
-        var quizheight = $('.moveable.active').height();
-        
-        $('.boxed').height( $('.questioncontainer').height() + 40);
-        var boxedheight = $('.boxed').height();
-
-        console.log(quizheight);
-
-        if ( boxedheight < (quizheight + 40) ) {
-            $('.moveable.active').css({height: quizheight + 40});
-            $('.questioncontainer .boxed').height(quizheight + 80);
-        } else {
-            console.log('ddd');
-            $('.moveable.active').css({height: boxedheight - 40});
-        }
-        
-
+    function animateBar(bars){
+        setTimeout(function(){
+            $(bars + " li .bar").each( function( key, bar ) {
+                var percentage = $(this).data('percentage');
+                
+                $(this).animate({
+                  'height' : percentage + '%'
+                }, 1000);
+              });
+        }, 2500);
     }
+
+    function initBar(bars){
+        $(bars + " li .bar").each( function( key, bar ) {
+            $(this).css({ 'height' : 'auto' });
+        });
+    }
+    
+    if ( $('.pie').length > 0){
+       var pie = new Pie(document.querySelector(".pie"), {
+         mask: true,
+         color: "#ab0d20",
+         backgroundColor: "#ce102c"
+       }, "#pie1");
+
+       var pie2 = new Pie(document.querySelector(".mainpie"), {
+         mask: true,
+         color: "#ab0d20",
+         backgroundColor: "#ce102c"
+       }, "#pie2");
+    }
+    
+    function initPie(){
+
+        percent = 0;
+        pie.set(0);
+        pie2.set(0);
+    }
+    
 	/*
 	 * GO TO NEXT QUESTION
 	 * Requires next questionID 
@@ -392,49 +417,14 @@ $(function() {
             
             //Check if next question is answered
         	// if ($('#q' + nextID).find('input').hasClass('checked')) {
-        	// 	activateNextButton();
-        	// }else {
-        	// 	deactivateNextButton();
+        	//  	activateNextButton();
+        	// } else {
+        	//  	deactivateNextButton();
         	// }
 
         	activatePreviousButton();
-            
-            //Show submit on specific page numbers
-            // if (nextID == numQuestions){
-            //     showSubmit();
-            // } else {
-            //     hideSubmit();
-            // }  
-            
-            //if (nextID > numQuestions) {
-
-                // deactivateSubmit();
-                // //deactivateNextButton();
-                
-                
-                // $('.content .inner-cont').animate({
-                //     height: $('.screen.result').height() + 20
-                // }, 500, function() {
-                //     slideFeature('.quiz', '.result', 0);
-                //     $('.progress').removeClass('active').animate({
-                //         left: -newwidth
-                //     }, 1000, "easeOutQuint", function() {
-                //         $('.choicelist li.choice input:radio').attr('disabled', false);
-                //         $(this).hide();
-                //     });
-                // });
-
-            //} else {
-      
-                //setTimeout(function() {
-                    slideFeature('#' + QuestionID, '#q' + nextID);
-               // }, 500);
-                // var progresstimer = setTimeout(function() {
-                    
-                // }, 700);
-
-            //}
-        }
+            slideFeature('#' + QuestionID, '#q' + nextID, 500);
+         }
 	}
 
 	/*
@@ -454,82 +444,61 @@ $(function() {
              // }else {
              //    deactivateNextButton();
              // }
-             
-             //Show/HIDE submit button
-             // if (nextID == numQuestions) {
-             //    showSubmit();
-             // } else {
-             //    hideSubmit();
-             // }
 
             if (nextID <= 1) {
             	deactivatePreviousButton();
             }             
            
-            //var temptime = setTimeout(function() {
-                slideFeature('#' + QuestionID, '#q' + nextID);
-                //clearTimeout(temptime);
-            //}, 500);
-            //var progresstimer = setTimeout(function() {
-                
-
-            //}, 700);
-
-           
+            slideFeature('#' + QuestionID, '#q' + nextID, 500);           
         }
-
-	}
+	}  
     
-    
-    
-
-
     function iconanimation( ){
-        
-        var ORIGINAL_IMG_WIDTH = 827;
-        var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
-
-        $('.icon1 img').width( largeimgpercent * icon1_width );
-        $('.icon1').fadeIn();
         setTimeout(function(){
-            $('.icon2 img').width( largeimgpercent * icon2_width );
-            $('.icon2').fadeIn();
+            var ORIGINAL_IMG_WIDTH = 827;
+            var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
+            console.log( $('.baseicon img').width() );
+
+            $('.icon1 img').width( largeimgpercent * icon1_width );
+            $('.icon1').fadeIn();
             setTimeout(function(){
-                $('.icon3 img').width( largeimgpercent * icon3_width );
-                $('.icon3').fadeIn();
+                $('.icon2 img').width( largeimgpercent * icon2_width );
+                $('.icon2').fadeIn();
                 setTimeout(function(){
-                    $('.icon4 img').width( largeimgpercent * icon4_width );
-                    $('.icon4').fadeIn();            
+                    $('.icon3 img').width( largeimgpercent * icon3_width );
+                    $('.icon3').fadeIn();
                     setTimeout(function(){
-                        $('.icon5 img').width( largeimgpercent * icon5_width );
-                        $('.icon5').fadeIn();
+                        $('.icon4 img').width( largeimgpercent * icon4_width );
+                        $('.icon4').fadeIn();            
                         setTimeout(function(){
-                            $('.icon6 img').width( largeimgpercent * icon6_width );
-                            $('.icon6').fadeIn();
+                            $('.icon5 img').width( largeimgpercent * icon5_width );
+                            $('.icon5').fadeIn();
+                            setTimeout(function(){
+                                $('.icon6 img').width( largeimgpercent * icon6_width );
+                                $('.icon6').fadeIn();
+                            }, 300);
                         }, 300);
-                    }, 300);
-                }, 300);                    
-            }, 300);
-        }, 300); 
+                    }, 300);                    
+                }, 300);
+            }, 300); 
+    }, 2000);
     }
 
     function slideFeature(slideOutTab, slideInTab, delaytimer) {
         delaytimer = (delaytimer == null || delaytimer == 0) ? 0 : delaytimer;
         var slideTimerOut = 1000;
         var slideTimerIn = 1000;
-        $("html, body").animate({ scrollTop: "0px" });
+        $("html, body").animate({ scrollTop: "0px" }, 100);
+        
         setTimeout(function() {
             if (!inaction) {
                 inaction = true;
-               //$('.choicelist li.choice input:radio').attr('disabled', true);
-
 
                 if ($(slideOutTab).length > 0) {
                     $(slideOutTab).animate({
                             left: -newwidth
                         }, slideTimerOut, "easeOutQuint", function() {
                             $(this).removeClass('active');
-                            
                             //inaction = false;
                     });
                 }
@@ -537,22 +506,13 @@ $(function() {
                 if ($(slideInTab).length > 0) {
 
                     $(slideInTab).addClass('active').css('left', newwidth);
-                    
-                    adjustHeight();
-                    
+                    adjustWidth();
                     $(slideInTab).animate({
                             left: 0
                         }, slideTimerIn, "easeOutQuint", function() {
-                            
-
-                            
+                            adjustHeight();
                             inaction = false;
-                            //enable radio check boxes
-                           // $('.choicelist li.choice input:radio').attr('disabled', false);
                     });
-                        
-                  
-                    
                 }
             }
         }, delaytimer);
@@ -620,40 +580,82 @@ $(function() {
    
     
 
-    // $(window).resize(function(){
-    //     //Update quiz dimensions 
-    //     quizwidth = $('.boxed').width() - 40;
-    //     quizheight = $('.boxed').height() - 40;
-    //     $('.moveable').css({width: quizwidth, height: quizheight});
-    // })
+    $(window).resize(function(){
+        //Update quiz dimensions 
+        //quizwidth = $('.container').width() - 40;
+        
+        adjustWidth();
+        adjustHeight();
+        // quizwidth = $('.boxed').width() - 40;
+        // quizheight = $('.boxed').height() - 40;
+        // $('.moveable').css({width: quizwidth, height: quizheight});
+    })
 
-
+    function initArrows(){
+        $('#arrow1, #arrow4').css({ top: '-200%', left: '-100%', width: 274});
+        $('#arrow2, #arrow5').css({ top: '-200%', left: '200%', width: 315});
+        $('#arrow3, #arrow6').css({ top: '-200%', left: '200%', width: 253});
+    }
+    //Changes the widths of the arrows to allow for responsiveness
     function flyinarrows(maintarget, arrow1, arrow2, arrow3){
-        //change width of arrow to match target
-        var targetwidth = maintarget.width();
-        var ORIGINAL_TARGET_WIDTH = 378;
-        var temppercent = targetwidth / ORIGINAL_TARGET_WIDTH;
+        //Initialise the arrows width and positions before animation
+        initArrows();
+        
+        //add delay to get the newest width of the target and give user a chance to view the page : min 1000s
+        setTimeout(function(){
+            var targetwidth = maintarget.width();
+            var ORIGINAL_TARGET_WIDTH = 378;
+            var temppercent = targetwidth / ORIGINAL_TARGET_WIDTH;
 
-        arrow1.width(arrow1.width() * temppercent);
-        arrow2.width(arrow2.width() * temppercent);
-        arrow3.width(arrow3.width() * temppercent);
+            arrow1.width(arrow1.width() * temppercent);
+            arrow2.width(arrow2.width() * temppercent);
+            arrow3.width(arrow3.width() * temppercent);
 
-        arrow1.animate({
-            top:    "-24%",
-            left:   "-53%"
-        }, 300);
-        arrow2.delay(250).animate({
-            top:    "6%",
-            left:   "64%"
-        }, 300);
-        arrow3.delay(500).animate({
-            top:    "-18%",
-            left:   "50%"
-        }, 300);
+            
+            arrow1.animate({
+                top:    "-24%",
+                left:   "-53%"
+            }, 300);
+            arrow2.delay(250).animate({
+                top:    "6%",
+                left:   "64%"
+            }, 300);
+            arrow3.delay(500).animate({
+                top:    "-18%",
+                left:   "50%"
+            }, 300);
+        },1000)
 
     }
 
+    function adjustWidth(){
+        //console.log(quizwidth);
+        $('.moveable.active').width( quizwidth ); 
+    }
 
+    function adjustHeight(  ){
+        
+        var quizheight = $('.moveable.active').height() + 40;
+        
+        $('.boxed').height(quizheight);
+        
+        if ( quizheight > $('.questioncontainer').height() ) {
+                //Game is within the playing field
+                $('.boxed').height($('.questioncontainer').height());
+        } else {
+                //Game is outside the playing field
+                if ( quizheight > $('body').height()){
+                    if ($('#startline').length > 0){
+                    } else {
+                        $('.container').css({'height' : 'auto' });
+                    }
+                } else {
+                    $('.container').css({'height' : '100%' });
+                    $('.boxed').height( $('.container').height() - 40 );
+                }
+        }
+        $('.moveable.active').height( $('.questioncontainer').height() - 40 ); 
+    }
     
 
     init();
@@ -663,8 +665,6 @@ $(function() {
         if ($('.manright').length > 0)          $('.manright').hide();
         if ($('.insuline_tekst').length > 0)    $('.insuline_tekst').fadeIn();
         
-        //$('.moveable').css({width: quizwidth, height: quizheight});
-        //console.log(quizwidth + " x " + quizheight);
         $('.icon1').hide();
         $('.icon2').hide();
         $('.icon3').hide();
@@ -680,7 +680,7 @@ $(function() {
         if ($("#movingtarget").length > 0)
            flyinarrows($('img#maintarget'), $('#arrow1'), $('#arrow2'), $('#arrow3'));
 
-        adjustHeight();
+        
 
         //SPECIAL BACKGROUND FOR FIRST PAGE
         if ($("#startline").length > 0){
@@ -693,6 +693,10 @@ $(function() {
                 setTimeout(function(){
                     $('body').css({ background: "#aa1025" });
                     $('.container').css({width: "96%"});//, 'overflow' : 'visible' });
+                    $('.boxed').width( $('.questioncontainer').width());
+                    if ( $('.boxed').height() >= $('.questioncontainer').height() ) {
+                        $('.container').css({'height' : 'auto' });
+                    }
                 }, 1000);
             }, 6200);
         
@@ -703,44 +707,113 @@ $(function() {
             $('body').css({ background: "#aa1025" });
             $('.introcontainer').css({left: -newwidth});
             $('.questioncontainer').css({left: 0});
-            $('.container').css({'height' : 'auto' });
         }
+        adjustWidth();
+        adjustHeight();
 
     }
 
     
     function beginIntro(){
-        //BEX TODO: fix height per question
-        //BEX TODO: fix responsive / mobile presentation of questions
-        //BEX TODO: fix circle in mobile
-
-        
-
-        //var totalheading = $('.intro-header').height() +  $('.intro2').height() + $('.intro-footer').height();
-        
         
         setTimeout(function(){
             slideFeature('.intro', '.intro2', 1000);
         }, 1000);
 
+        iconanimation();
         
-        setTimeout(function(){
-            iconanimation();
-        }, 2500);      
-
         setTimeout(function(){
            $('.man').fadeIn();
            $('.insuline_tekst').fadeIn();
            slideFeature('.introcontainer', '.questioncontainer', 1000);
         }, 6000);   
 
+    }
 
+    
+
+    
+
+    function incrementPie(currentpie) {
+      if (percent >= 100) percent = 0;
+        currentpie.set(percent++ * 0.01);
+    }
+
+    function animatePie(){
         setTimeout(function(){
-            $('.delay1').fadeIn();
-            $('.delay2').fadeIn();
-            //$('.container').css({ background: "#aa1025", width: "100%" });
-            // $('.introcontainer').css('position', 'absolute');
-            //$('.questioncontainer').css({'position': 'relative', 'margin' : 0, 'top' : 0});
-        }, 2000);
+            var iCount =0;
+            $('#pie1 span').hide();
+            $('#pie2 span').hide();
+            
+            var animateFirstPie = setInterval(function(){
+                iCount++;
+                incrementPie(pie);
+                if (iCount > 77){
+                    $('#pie1 span').fadeIn();
+                    iCount = 0;
+                    percent= 0;
+                    clearTimeout(animateFirstPie);
+                    var animateSecondPie = setInterval(function(){
+                        iCount++;
+                        incrementPie(pie2);
+                        if (iCount > 28){
+                            iCount = 0;
+                            $('#pie2 span').fadeIn();
+                            clearTimeout(animateSecondPie);
+                        }
+                    }, 20);
+
+                }
+            }, 20);
+        },1500);
     }
 });
+
+
+// LIBRARY
+function cssTransform(degs) {
+  return "rotate(" + degs + "deg) translate(0, -25%)";
+}
+
+var Pie = function(el, options, mypie) {
+  options = options || {};
+  options.color = options.color || "#ab0d20";
+  options.backgroundColor = options.backgroundColor || "#ce102c";
+
+  this.el = el;
+  this.inner = this.el.querySelector(mypie + " .pie_inner");
+  this.blocker1 = this.el.querySelector(mypie + " .pie_blocker-1");
+  this.blocker2 = this.el.querySelector(mypie + " .pie_blocker-2");
+  this.pieLeft = this.el.querySelector(mypie + " .pie_circle-left");
+  this.pieRight = this.el.querySelector(mypie + " .pie_circle-right");
+
+  this.pieLeft.style.backgroundColor = options.color;
+  this.pieRight.style.backgroundColor = options.color;
+
+  this.blocker1.style.backgroundColor = options.backgroundColor;
+  this.blocker2.style.backgroundColor = options.backgroundColor;
+
+  if (options.mask) {
+    this.addMask();
+  }
+};
+
+Pie.prototype.set = function(percentage) {
+  this.percentage = percentage;
+  this.degs = 360 * this.percentage;
+
+  var degs1 = this.degs > 180 ? 180 : this.degs;
+  var degs2 = this.degs > 180 ? this.degs - 180 : 0;
+
+  this.blocker1.style.webkitTransform = cssTransform(degs1);
+  this.blocker2.style.webkitTransform = cssTransform(degs2);
+};
+
+Pie.prototype.addMask = function() {
+  this.inner.style.webkitMask =
+    "-webkit-radial-gradient(center, #ab0d20 0%, #ab0d20 70%, transparent 71%, transparent 100%) no-repeat no-repeat 50% 50%";
+};
+
+// DEMO
+
+

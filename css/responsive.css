@@ -26,23 +26,44 @@
 }
 @media screen and (max-width: 1240px){
 	.insuline_tekst{font-size:20px; width:50%;}
+	.man { left:26%; }
+	.arrow-block{ width:60%; }
+	/*.extrapaddingman{bottom:-20px;right:20px; width:auto;}*/
+	
+
 
 }
 
 @media screen and (max-width: 850px){
-	.top-wrap {min-height:auto;}
+    .question-radio-vertical input[type="radio"]+label{ max-width: 100%;}
+    .step-box {width:100%; font-size:1em;}
+	.step-container{display:block; max-width:100%; margin-top:30px;}
+	.step-arrow{border-top: 40px solid #878786; border-bottom: 20px solid transparent; border-left: 40px solid transparent; border-right: 40px solid transparent; margin: 20px auto 0;}
+    .step-box section{min-height:100px; line-height:1.2em;}
+    .question-logo{right:6%; top:3%;}
+	.pie, .mainpie { font-size: 150px;  }
+  	.top-wrap {min-height:auto;}
 	.greybox{ padding: 10px;}
+	.manright, .man {display:none !important;}
+	.inner-wrap {min-height:100px;}
+	.insuline_box{left:0}
+	.option-txt{ font-size:0.9em; padding-left:15px; }
+	
 
+	.mini-icon{height:36px; width:42px;}
+	.accordion_header {font-size:1em; line-height:1.2em;}
 	/*.questioncontainer {height:auto; margin-bottom:2%;}*/
 	/*.container {height:auto;}
 	.boxed{overflow:auto;}*/
+	.big-red {width:100%; padding:15px; font-size:1.2em;}
 	.man {position:relative;}
 	.manpos {width:320px}
 	.insuline_tekst{width:80%;}
-	.intro-footer img {max-width:20%; height:auto;} .choicelist li.choice input[type="radio"] + label span, .choicelist li.choice input[type="checkbox"] + label span { width:45px; height:45px;}
+	.intro-footer img {max-width:20%; height:auto;} 
 	.questions {width:100%}
 
-	
+	.questioncontainer{top:10px;}
+
 	a.to_left, a.to_right{
 		width: 45%;
 	}
@@ -55,13 +76,15 @@
 		float: none;
 		clear:both;
 	}
+	.arrow-block{ width:75%; }
+	body {font-size:16px;}
+	p, ul{font-size:16px;}
+	.innertext {font-size:2em;}
+	.middlevs{font-size:1em;}
+	h1 {font-size:2em;}
+	h2{font-size: 1.2em;}
+	.ndf-source {bottom:0; position:relative;}
 	
-	body {
-		font-size:14px;}
-	/*h2{font-size: 25px;}
-	h1{font-size: 30px;}
-	*/
-
 }
 
 @media screen and (max-width: 480px){
