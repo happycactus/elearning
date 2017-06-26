@@ -1,0 +1,204 @@
+@font-face {
+    font-family: 'imago_probook'; font-weight: normal; font-style: normal;
+    src: url('fonts/imagoproboo-webfont.woff2') format('woff2'), url('fonts/imagoproboo-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'imago_probook_italic'; font-weight: normal; font-style: normal;
+    src: url('fonts/imagoprobooita-webfont.woff2') format('woff2'), url('fonts/imagoprobooita-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'imago_promedium'; font-weight: normal; font-style: normal;
+    src: url('fonts/imagopromed-webfont.woff2') format('woff2'), url('fonts/imagopromed-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'imago_promedium_italic'; font-weight: normal; font-style: normal;
+    src: url('fonts/imagopromedita-webfont.woff2') format('woff2'), url('fonts/imagopromedita-webfont.woff') format('woff');
+}
+
+*{
+    font-family: 'imago_probook', verdana, arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+div{
+    display: block;
+    /*border: 1px solid red;*/
+    
+}
+sup {font-size:0.6em;}
+
+body{
+    background: #acaeb1;
+    cursor: default;
+}
+
+html, body{
+    height: 100%;
+    font-family:'imago_probook', Verdana, Arial, sans-serif;
+    font-size:16px;
+    line-height:24px;
+    text-align:left;
+    color:#666;
+}
+p, ul{
+    font-family: 'imago_probook_italic', verdana, sans-serif;
+    font-size:2.5em;
+    line-height:1.2em;
+    text-align:center;
+    margin-bottom:8px;
+    display:block;
+    color:#666;
+}
+h1, h2, h3, h4, h5{
+    position:relative;
+    font-family: 'imago_probook', Verdana, Arial, sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    text-align:center;
+}
+h1{
+    color:#a91024; font-size: 5em; font-weight:600;
+}
+h2{
+    font-family: 'imago_promedium_italic', Verdana, Arial, sans-serif; text-align:center; font-size: 4em; color:#000; margin-bottom:30px; margin-top:20px;
+}
+h3{
+    font-size: 40px; color:#a91024; text-align:center;
+}
+h4{
+    font-size: 1.2em; color:#a91024; text-align:left; padding-bottom:8px;
+}
+h5{
+    font-size: 1.1em; text-align:left; margin-bottom:10px;
+}
+
+.hide{ display: none; }
+.clear{ clear: both; float: none; }
+.error input{
+    /*background-color: #fff;
+     padding: 5px;
+     font-size: 10px;
+     */
+    color: #ff0000 !important;
+    border:1px solid red !important;
+}
+::selection{
+    background-color: #a8deff;
+    color: #d4efff;
+}
+
+.container{
+    transition:.5s;
+    width: 96%;
+    
+    margin: 0 auto;
+    padding:0px 0;
+    
+    display: block;
+    position:relative;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    
+    height:100%;
+    background-color: #acaeb1;
+    overflow:visible;
+}
+.introcontainer{
+    border-radius:10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius:10px;
+    border-bottom-right-radius:50%;
+    -moz-border-bottom-right-radius:50%;
+    -webkit-border-bottom-right-radius:50%;
+    position:relative;
+    background: white;
+    width:100%;
+    margin: 20px auto; text-align:center;
+}
+
+.container:after { content: ""; display: block; }
+strong{font-weight:bold; font-family: 'imago_promedium_italic', Verdana, Arial, sans-serif;}
+
+.quarter{ width: 25%;	display: inline-block; 	position: relative;	float: left;}
+.halfcol_l{ width: 47%;	display: inline-block; 	position: relative;	float: left;}
+.halfcol_r{	width: 47%;	display: inline-block;	position: relative;	float:  right;}
+.mini_left {width:35%;}
+.twothirds {width:58%;}
+.onethird {width:38%;}
+
+.boxed {position:relative; width:100%; margin:0 auto; max-width:800px; text-align:left; min-height:100%;}
+.miniboxed {position:relative; width:100%; overflow:visible; text-align:left;}
+.inner-circle-box{ position:relative; margin:0 auto; padding-top:20px; max-width:560px;}
+.inner-wrap {position:relative; width:100%; text-align:left; min-height:80%;}
+.top-wrap { min-height:10%; }
+
+.moveable {border-radius:10px; -moz-border-radius: 10px; -webkit-border-radius:10px; position:relative; padding:20px;}
+
+/*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*//*QUIZ*/
+.greybox{ align-items: center; justify-content: space-around; border:1px solid #f4f6fc;}
+.greybox, .question-box, .info-box{
+    background: #f4f6fc; width:100%; max-width: 480px; min-height: 100px; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; padding: 10px 30px;
+    box-shadow: 2px 0px 4px 2px rgba(0,0,0,0.2); box-sizing: border-box; line-height: 31px; margin: 0 auto 20px;
+}
+
+@media screen and (max-width: 850px){
+    .question-radio-vertical input[type="radio"]+label{ max-width: 100%;}
+    .step-box {width:100%; font-size:1em;}
+  .step-container{display:block; max-width:100%; margin-top:30px;}
+  .step-arrow{border-top: 40px solid #878786; border-bottom: 20px solid transparent; border-left: 40px solid transparent; border-right: 40px solid transparent; margin: 20px auto 0;}
+    .step-box section{min-height:100px; line-height:1.2em;}
+    .question-logo{right:6%; top:3%;}
+  .pie, .mainpie { font-size: 150px;  }
+    .top-wrap {min-height:auto;}
+  .greybox{ padding: 10px;}
+  .manright, .man {display:none !important;}
+  .inner-wrap {min-height:100px;}
+  .insuline_box{left:0}
+  .option-txt{ font-size:0.9em; padding-left:15px; }
+  
+
+  .mini-icon{height:36px; width:42px;}
+  .accordion_header {font-size:1em; line-height:1.2em;}
+  /*.questioncontainer {height:auto; margin-bottom:2%;}*/
+  /*.container {height:auto;}
+  .boxed{overflow:auto;}*/
+  .big-red {width:100%; padding:15px; font-size:1.2em;}
+  .man {position:relative;}
+  .manpos {width:320px}
+  .insuline_tekst{width:80%;}
+  .intro-footer img {max-width:20%; height:auto;} 
+  .questions {width:100%}
+
+  .questioncontainer{top:10px;}
+
+  a.to_left, a.to_right{
+    width: 45%;
+  }
+  
+  input[type="submit"] {font-size:18px !important;}
+  .choicelist li{ display: inline-block; }
+  
+  .halfcol_l, .halfcol_r{
+    width: 100%;
+    float: none;
+    clear:both;
+  }
+  .arrow-block{ width:75%; }
+  body {font-size:16px;}
+  p, ul{font-size:16px;}
+  .innertext {font-size:2em;}
+  .middlevs{font-size:1em;}
+  h1 {font-size:2em;}
+  h2{font-size: 1.2em;}
+  .ndf-source {bottom:0; position:relative;}
+  
+}
+
+@media screen and (max-width: 480px){
+
+}
