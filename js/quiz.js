@@ -132,8 +132,7 @@ $(function() {
     
     $('button.accordion').click(function(){
         var panel = this.nextElementSibling;
-        console.log(this.nextElementSibling);
-        console.log($('button.accordion')[0].nextElementSibling);
+        var extraheight = 300;
 
         if ($(this).hasClass('active')){
         
@@ -141,7 +140,8 @@ $(function() {
             $('button.active i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
             this.classList.toggle("active");
 
-            //$('.moveable.active').height( $('.moveable.active').height() - $('.panel').height() );
+        
+                //$('.moveable.active').height( $('.moveable.active').height() - $('.panel').height() );
         } else {
         
             //Close all other windows
@@ -155,6 +155,10 @@ $(function() {
 
             //$('.moveable.active').height( $('.moveable.active').height() + $('.panel').height() );
         }
+        setTimeout(function(){
+            $('.moveable.active').height('auto');
+            adjustHeight();
+        },100);
 
     })
 
@@ -256,6 +260,14 @@ $(function() {
                     window.location.href = $('#btn_submit').val();
                 }   
 
+            if ($('.moveable.active').attr('id') == 'q37')                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q38')                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q39')                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q40')                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q41')                $('form').submit();
+            
+
+
             //} else {
                 nextQuestion($('.moveable.active').attr('id'));
             //}
@@ -331,6 +343,16 @@ $(function() {
             $('.manright').fadeOut();
 
         }
+
+        if ($('.moveable.active').attr('id') == 'q37'){
+            $('.manright').fadeIn();
+
+        }
+
+        if ($('.moveable.active').attr('id') == 'q38')           window.location.href = $('#btn_back').val();
+        if ($('.moveable.active').attr('id') == 'q39')           window.location.href = $('#btn_back').val();
+        if ($('.moveable.active').attr('id') == 'q40')           window.location.href = $('#btn_back').val();
+        if ($('.moveable.active').attr('id') == 'q41')           window.location.href = $('#btn_back').val();
 
         if ($(this).hasClass('inactive')){
     		return false;
@@ -457,7 +479,7 @@ $(function() {
         setTimeout(function(){
             var ORIGINAL_IMG_WIDTH = 827;
             var largeimgpercent = $('.baseicon img').width() / ORIGINAL_IMG_WIDTH ;
-            console.log( $('.baseicon img').width() );
+            
 
             $('.icon1 img').width( largeimgpercent * icon1_width );
             $('.icon1').fadeIn();
@@ -546,18 +568,13 @@ $(function() {
             $(aInputs[editID]).parent('.mini-icon').removeClass(currentIcon);
 
             //Shuffle other items to the left
-            console.log(editID);
-            for (var i = editID; i < aInputs.length -1; i++) {
-                //aInputs[i];
-                console.log(i);
-                console.log(aInputs[i].value);
-                console.log(aInputs[i+1].value);
-                //currentIcon = $(aInputs[i]).parent('.mini-icon').className;;
-                //console.log(currentIcon);
-                aInputs[i].value = aInputs[i+1].value;
-                // aInputs[i].value = '';
-                // var tempiconName = $(aInputs[i]).parent('.mini-icon').className;// = 'mini-icon ';// + currentIcon;    
-                // console.log(tempiconName);
+            for (var i = editID; i < aInputs.length; i++) {
+                var nextItem = (aInputs[i+1]) ? (aInputs[i+1]) : '';
+                aInputs[i].value = (nextItem) ? nextItem.value : '';
+                var parentIcon = $(aInputs[i]).parent('.mini-icon')[0];
+                var nextParentIconClass = (nextItem) ? $(aInputs[i+1]).parent('.mini-icon')[0].className : 'mini-icon';
+                parentIcon.className = '';
+                $(parentIcon).addClass( nextParentIconClass );
             }
         } else {
 
@@ -629,7 +646,6 @@ $(function() {
     }
 
     function adjustWidth(){
-        //console.log(quizwidth);
         $('.moveable.active').width( quizwidth ); 
     }
 
