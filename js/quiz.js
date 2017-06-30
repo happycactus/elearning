@@ -106,6 +106,54 @@ $(function() {
         } else {
             $(this).addClass('checked');
         }
+
+    });
+    
+    $('.custom_ordered span').on('click', function(event) {
+
+        if ($(this).hasClass('checked')) {
+            $(this).removeClass('checked');
+
+            //Move to bottom
+            var editID = $(this)[0].id;
+            editID = editID.slice(-1);
+            
+               //Find the item that needs replacing
+                //var positionID = editID;
+                
+                for (var i = editID; i < $('.custom_ordered span').length; i++) {
+                    var currenttext = $('#pos_'+i).text();
+                    var nextID = parseInt(i) + 1;
+                    
+                    if ($('#pos_'+nextID).hasClass('checked')){
+                        //remove class and shuffle text to currentslot
+                        $('#pos_'+i).addClass('checked');
+                        $('#pos_'+nextID).removeClass('checked');
+                        
+                        $('#pos_'+i).text($('#pos_'+nextID).text());
+                        $('#pos_'+nextID).text( currenttext )
+                    }
+                    
+                }
+
+        } else {
+            
+            //Move to 'next' position
+            var emptyslotID = 1;
+            for (var i = $('.custom_ordered span').length; i >= 1; i--) {
+                if ( !$('#pos_'+i).hasClass('checked') ) {
+                    emptyslotID = i;
+                }
+            }
+            
+            var movingslot = $('#pos_' + emptyslotID).text();
+            var currentslot = $(this).text();
+            
+            $('#pos_'+emptyslotID).text( currentslot );
+            $('#pos_'+emptyslotID).addClass('checked');
+            $(this).text(movingslot);
+
+        }
     });
 
     $('.choiceradio li').find('input').on('click', function(event) {
@@ -199,6 +247,7 @@ $(function() {
             if ($('.moveable.active').attr('id') == 'q8')                  $('form').submit();
 
 
+
             if ($('.moveable.active').attr('id') == 'q10'){
                 $('.manright').fadeOut();
                 iconanimation();
@@ -207,7 +256,13 @@ $(function() {
 
             if ($('.moveable.active').attr('id') == 'q14')                window.location.href = "stap7.html";
 
-            if ($('.moveable.active').attr('id') == 'q15')                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q15'){
+
+                for (var i = 1; i <= $('.custom_ordered span').length; i++) {
+                    $('#q15_'+i).val( $('#pos_'+i).text() );
+                }                
+                $('form').submit();
+            }   
             
             if ($('.moveable.active').attr('id') == 'q16')                $('form').submit();
 
@@ -265,6 +320,7 @@ $(function() {
             if ($('.moveable.active').attr('id') == 'q39')                $('form').submit();
             if ($('.moveable.active').attr('id') == 'q40')                $('form').submit();
             if ($('.moveable.active').attr('id') == 'q41')                $('form').submit();
+            if ($('.moveable.active').attr('id') == 'q42')                $('form').submit();   
             
 
 
@@ -353,6 +409,8 @@ $(function() {
         if ($('.moveable.active').attr('id') == 'q39')           window.location.href = $('#btn_back').val();
         if ($('.moveable.active').attr('id') == 'q40')           window.location.href = $('#btn_back').val();
         if ($('.moveable.active').attr('id') == 'q41')           window.location.href = $('#btn_back').val();
+
+        if ($('.moveable.active').attr('id') == 'q42')           window.location.href = $('#btn_back').val();
 
         if ($(this).hasClass('inactive')){
     		return false;
@@ -652,7 +710,8 @@ $(function() {
     function adjustHeight(  ){
         
         var quizheight = $('.moveable.active').height() + 40;
-        
+        $('.moveable.active').width( quizwidth ); 
+
         $('.boxed').height(quizheight);
         
         if ( quizheight > $('.questioncontainer').height() ) {

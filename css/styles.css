@@ -164,6 +164,8 @@ strong{font-family: 'imago_promedium';}
 .mini_left {width:35%;}
 .twothirds {width:58%;}
 .onethird {width:38%;}
+.extratwothirds {width:68%;}
+.extraonethird {width:28%;}
 
 .boxed {position:relative; width:100%; overflow:hidden; text-align:left; height:300px; min-height:100%;}
 .miniboxed {position:relative; width:100%; overflow:visible; text-align:left;}
@@ -456,16 +458,18 @@ form .greybox.deactive {border:1px solid #a91024; background: rgba(169, 16, 36, 
 
 /*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*//*RESULTS*/
 input[type=text].text-active, input[type=text].text-active{ color: #666; }
-input[type=text], input[type=text], input[type=number]{
-    width: 90%;
+input[type=text], input[type=number]{
+    width: 98%;
     display: block;
-    padding: 10px;
+    padding: 13px 1%;
     margin: 8px 0px;
     /*color: #ccc;*/
     font-size: 14px;
     border: #cccccc solid 1px;
     border-radius: 4px;
 }
+
+.custom_ordered span {position:relative; width:100%; top:0;}
 
 
 
@@ -488,8 +492,8 @@ input[type=text], input[type=text], input[type=number]{
 
 /* CHECKBOX FORM STYLING*/
 .question-checkbox-vertical input[type="checkbox"]{ display: none; }
-.question-checkbox-vertical input[type="checkbox"]+label{ display: block; width: 100%; max-width: 884px; height: 55px; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
-.question-checkbox-vertical input[type="checkbox"]:checked+label{ background: #a91024; color: #FFF; }
+.question-checkbox-vertical input[type="checkbox"]+label, .checkboxstyle{ display: block; width: 100%; max-width: 884px; height: 55px; cursor:pointer; line-height: 55px; background: #FFF; border: 1px solid #b7b7b7; border-radius: 13px; text-align: center; margin-top: 10px; transition: all .4s ease; font-size: 20px; }
+.question-checkbox-vertical input[type="checkbox"]:checked+label, .checkboxstyle.checked{ background: #a91024; color: #FFF; }
 
 /* PROGRESS BAR QUESTIONS */
 .progress-bar{ position: absolute; width: 100%; max-width: 884px; height: 30px; bottom: 70px; border-radius: 15px; display: flex; justify-content: space-around; overflow:hidden; }
